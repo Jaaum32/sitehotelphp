@@ -28,13 +28,13 @@
             <a class="nav-link active" aria-current="page" href="#">Users</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_acom.html">Acomodações</a>
+            <a class="nav-link" href="list_acom.php">Acomodações</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_tarifas.html">Tarifas</a>
+            <a class="nav-link" href="list_tarifas.php">Tarifas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="list_reservas.html">Reservas</a>
+            <a class="nav-link" href="list_reservas.php">Reservas</a>
           </li>
         </ul>
       </div>
