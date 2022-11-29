@@ -34,5 +34,3 @@ CREATE TABLE tb_reserva (
     qtd_hospedes int DEFAULT NULL,
     preco DECIMAL DEFAULT NULL
 )
-
-
