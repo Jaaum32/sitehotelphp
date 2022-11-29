@@ -36,41 +36,28 @@
     <main>
         <form>
             <fieldset title="">
-                <legend>Responsável</legend>
-                <label>Nome</label>
-                <input type="text" placeholder="Fulano de tal">
+                <legend>Cadastro</legend>
+
+                <label for="">Nome</label>
+                <input type="text" name="" id="" placeholder="Juca Subjuca">
+
+                <label for="">Perfil</label>
+                <input type="text" name="" id="" placeholder="Juca02">
 
                 <label for="">E-mail</label>
-                <input type="email" name="" id="" placeholder="fulano@provedor.com">
+                <input type="email" name="" id="" placeholder="juca@provedor.com">
+
+                <label for="">Senha</label>
+                <input type="password" name="" id="" placeholder="12345678">
+
+                <label for="">Confirmar senha</label>
+                <input type="password" name="" id="" placeholder="12345678">
 
                 <label for="">Telefone</label>
                 <input type="tel" name="" id="" placeholder="(xx) xxxxx-xxxx">
             </fieldset>
 
-            <fieldset title="">
-
-                <legend>Data da Reserva</legend>
-                <label for="">Data de entrada</label>
-                <input type="date" name="" id="">
-
-                <label for="">Data de saída</label>
-                <input type="date" name="" id="">
-
-                <label for="">Adultos</label>
-                <input type="number" name="" id="" min="1" max="4" value="1">
-
-                <label for="">Crianças</label>
-                <input type="number" name="" id="" min="0" max="4" value="0">
-
-                <label for="">Acomodações</label>
-                <select name="acomodações" id="">
-                    <option value="std">Standart</option>
-                    <option value="lux">Luxo</option>
-                </select>
-
-
-            </fieldset>
-            <input type="submit" name="" id="button" value="Reservar">
+            <input type="submit" name="" id="button" value="Fazer cadastro">
         
         </form>
     </main>

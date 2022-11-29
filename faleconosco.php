@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Hotel</title>
+    <title>Hoteloso</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@800&display=swap" rel="stylesheet">
@@ -20,10 +20,10 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">O Hotel</a></li>
-            <li><a href="faleconosco.html" id="this">Fale Conosco</a></li>
-            <li><a href="reserva.html">Reserva</a></li>
-            <li><a href="acomodacoes.html">Acomodações</a></li>
+            <li><a href="index.php">O Hotel</a></li>
+            <li><a href="faleconosco.php" id="this">Fale Conosco</a></li>
+            <li><a href="reserva.php">Reserva</a></li>
+            <li><a href="acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>
 
