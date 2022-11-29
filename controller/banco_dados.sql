@@ -9,7 +9,7 @@ CREATE TABLE tb_usuario (
   senha varchar(255) DEFAULT NULL,
   telefone varchar(15) DEFAULT NULL,
   perfil varchar(255) DEFAULT NULL
-) 
+);
 
 CREATE TABLE tb_acomodacao(
     id int(11) NOT NULL,
@@ -17,13 +17,13 @@ CREATE TABLE tb_acomodacao(
     qtd_solt int DEFAULT NULL,
     qtd_ext int DEFAULT NULL,
     tipo VARCHAR(20) DEFAULT NULL
-)
+);
 
 CREATE TABLE tb_tarifa (
     id int(11) NOT NULL,
     tipo VARCHAR(20) DEFAULT NULL,
     preco DECIMAL DEFAULT NULL
-)
+);
 
 CREATE TABLE tb_reserva (
     id int(11) NOT NULL,
@@ -33,4 +33,4 @@ CREATE TABLE tb_reserva (
     data_out date DEFAULT NULL,
     qtd_hospedes int DEFAULT NULL,
     preco DECIMAL DEFAULT NULL
-)
+);
