@@ -1,6 +1,7 @@
 <?php
     require_once('conexao.php');
     require_once('../models/user.dao.php');
+    session_start();
 
     $view = '../view_adm/list_users.php';//view padrão
     $pessoaDAO = new PessoaDAO($pdo);
@@ -10,8 +11,12 @@
 
     if(@$action == "cadastrar"){
         
-        $pessoaDAO->createUser(@$_POST);
+        $teste = $pessoaDAO->createUser(@$_POST);
         $view = '../view_user/index.php';
+
+        $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
+        $_SESSION['id'] = $id;
+        $_SESSION['nome'] = @$_POST['nome'];
 
         header('location: '.$view);
         //require_once($view);
@@ -45,8 +50,8 @@
         }else{
             if(@$_POST['pass'] == $user->senha){
                 //iniciar a sessão
-                require_once('../login/criarsessao.php');
-                
+                $_SESSION['id'] = $user->id;
+                $_SESSION['nome'] = $user->nome;
             }else{
                 //exibir que o usuário digitou uma senha errada
             }
