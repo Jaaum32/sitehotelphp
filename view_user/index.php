@@ -23,13 +23,13 @@
     <header>
         <h1 class="gradient">Hoteloso</h1>
 
-        <?php if($_SESSION['id'] == null): ?>
+        <?php if(empty($_SESSION)): ?>
             <ul>
                 <li><a href="login.php">Logar</a></li>
                 <li><a href="signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
-        <?php if($_SESSION['id'] !== null): ?>
+        <?php if(empty($_SESSION) !== true): ?>
             <p>Olá, <?= $_SESSION['nome'] ?></p> 
         <?php endif; ?>
     </header>
