@@ -22,6 +22,19 @@
 <body>
     <header>
         <h1 class="gradient">Hoteloso</h1>
+        
+        <?php if(empty($_SESSION)): ?>
+            <ul>
+                <li><a href="login.php">Logar</a></li>
+                <li><a href="signup.php">Cadastrar</a></li>
+            </ul>
+        <?php endif; ?>
+        <?php if(empty($_SESSION) !== true): ?>
+            <ul>
+                <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
+                <li><a href="../controller.user.php?action=logout">Sair</a></li>
+            </ul>
+        <?php endif; ?>
     </header>
 
     <nav>
