@@ -53,6 +53,4 @@ require_once('../controller/conexao.php');
             return $stmt->fetchObject();
         }
     }
-    
-    
 ?>
