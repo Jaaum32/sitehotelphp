@@ -34,15 +34,15 @@
     </aside>
 
     <main>
-        <form>
+        <form action="../controller/controller.user.php?action=login" method="POST">
             <fieldset title="">
                 <legend>Login</legend>
 
                 <label for="">E-mail</label>
-                <input type="email" name="" id="" placeholder="juca@provedor.com">
+                <input type="email" name="email" id="" placeholder="juca@provedor.com">
 
                 <label for="">Senha</label>
-                <input type="password" name="" id="" placeholder="12345678">
+                <input type="password" name="pass" id="" placeholder="12345678">
             </fieldset>
 
             <input type="submit" name="" id="button" value="Fazer login">

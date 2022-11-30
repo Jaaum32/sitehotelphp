@@ -41,6 +41,17 @@ require_once('../controller/conexao.php');
 
             return  $stmt->rowCount();
         }
+
+        function getUserByEmail($email){
+            $sql = "SELECT * FROM tb_usuario WHERE email = ?";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(1, $email);
+
+            $stmt->execute();
+
+            return $stmt->fetchObject();
+        }
     }
     
     

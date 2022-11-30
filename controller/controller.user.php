@@ -6,7 +6,7 @@
     $pessoaDAO = new PessoaDAO($pdo);
     $action = @$_REQUEST['action'];
 
-    echo $action;
+    //echo $action;
 
     if(@$action == "cadastrar"){
         
@@ -33,6 +33,28 @@
         }
 
 
+    }else if($action == "login"){
+        $email = @$_POST['email'];
+        //echo @$_POST['pass'];
+
+        $user = $pessoaDAO->getUserByEmail($email);
+
+        if(empty($user)){
+            echo "vazia";
+            //tratar quando o usuário digita um email inválido
+        }else{
+            if(@$_POST['pass'] == $user->senha){
+                //iniciar a sessão
+                require_once('../login/criarsessao.php');
+                
+            }else{
+                //exibir que o usuário digitou uma senha errada
+            }
+        }
+
+        $view = '../view_user/index.php';
+        //header('location: '.$view);
+        
     }
 
     if($view == '../view_adm/list_users.php'){
