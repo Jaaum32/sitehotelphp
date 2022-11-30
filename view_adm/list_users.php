@@ -1,5 +1,5 @@
 <?php
-  require_once('../../controller/controller.user.php');
+  require_once('../controller/controller.user.php');
 ?>
 
 <!DOCTYPE html>
@@ -66,21 +66,10 @@
           <th>Login</th>
           <th>Email</th>
           <th>Telefone</th>
-          <!-- <th></th> -->
+          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>ID</td>
-          <td>Nome</td>
-          <td>Login</td>
-          <td>Email</td>
-          <td>Telefone</td>
-          <!-- <td>
-            <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-pencil-square"></i></a>
-            <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
-          </td> -->
-        </tr>
          <?php foreach ($users as $index => $user): ?>
               <tr>
                   <td><?= $user->id ?></td>
@@ -88,6 +77,7 @@
                   <td><?= $user->perfil ?></td>
                   <td><?= $user->email ?></td>
                   <td><?= $user->telefone ?></td>
+                  <td><a class="btn btn-sm btn-secondary" href="../controller/controller.user.php?action=delete&id=<?= $user->id ?>"><i class="bi bi-trash"></i></a></td>
               </tr>
             <?php endforeach; ?> 
       </tbody>

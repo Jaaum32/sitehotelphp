@@ -1,5 +1,5 @@
 <?php
-require_once('../../controller/conexao.php');
+require_once('../controller/conexao.php');
     class PessoaDAO{
         private $pdo;
         
@@ -29,6 +29,17 @@ require_once('../../controller/conexao.php');
             $stmt->execute();
 
             return $stmt->fetchAll(PDO::FETCH_CLASS);
+        }
+
+        function delete($id){
+            $sql = "DELETE FROM tb_usuario WHERE id = :id";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':id', $id);
+
+            $stmt->execute();
+
+            return  $stmt->rowCount();
         }
     }
     

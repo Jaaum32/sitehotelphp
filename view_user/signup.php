@@ -34,7 +34,7 @@
     </aside>
 
     <main>
-        <form action="../../controller/controller.user.php" method="post">
+        <form action="../controller/controller.user.php" method="post">
             <fieldset title="">
                 <legend>Cadastro</legend>
                 <input type="hidden" name="action" value="cadastrar">
