@@ -1,11 +1,3 @@
-<?php
-    require_once('../controller/conexao.php');
-    echo "";
-
-    $nome = $_POST['nome'];
-    echo $nome;
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,27 +34,28 @@
     </aside>
 
     <main>
-        <form action="" method="post">
+        <form action="../../controller/controller.user.php" method="post">
             <fieldset title="">
                 <legend>Cadastro</legend>
+                <input type="hidden" name="action" value="cadastrar">
 
                 <label for="">Nome</label>
                 <input type="text" name="nome" value="" id="" placeholder="Juca Subjuca">
 
                 <label for="">Perfil</label>
-                <input type="text" name="" id="" placeholder="Juca02">
+                <input type="text" name="login" id="" placeholder="Juca02">
 
                 <label for="">E-mail</label>
-                <input type="email" name="" id="" placeholder="juca@provedor.com">
+                <input type="email" name="email" id="" placeholder="juca@provedor.com">
 
                 <label for="">Senha</label>
-                <input type="password" name="" id="" placeholder="12345678">
+                <input type="password" name="senha" id="" placeholder="12345678">
 
                 <label for="">Confirmar senha</label>
-                <input type="password" name="" id="" placeholder="12345678">
+                <input type="password" name="senha2" id="" placeholder="12345678">
 
                 <label for="">Telefone</label>
-                <input type="tel" name="" id="" placeholder="(xx) xxxxx-xxxx">
+                <input type="tel" name="telefone" id="" placeholder="(xx) xxxxx-xxxx">
             </fieldset>
 
             <input type="submit" name="" id="button" value="Fazer cadastro">

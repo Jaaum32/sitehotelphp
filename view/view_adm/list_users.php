@@ -1,3 +1,7 @@
+<?php
+  require_once('../../controller/controller.user.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,11 +46,11 @@
   </nav>
 
   <div>
-    <!-- <?php if(@$message) : ?>
+    <!-- <!-?php if (@$message): ?>
           <div class="alert alert-info w-50 mx-auto">
-              <?= @$message ?>
+              <!-?=@$message ?>
           </div>
-      <?php endif; ?> -->
+      <!-?php endif; ?> -->
 
     <table class="table table-striped table-hover">
       <thead class="table-dark">
@@ -77,19 +81,15 @@
             <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
           </td> -->
         </tr>
-        <!-- <?php foreach ($pessoas as $index => $pessoa): ?>
+         <?php foreach ($users as $index => $user): ?>
               <tr>
-                  <td><?= $pessoa->id ?></td>
-                  <td><?= $pessoa->nome ?></td>
-                  <td><?= $pessoa->nascimento ?></td>
-                  <td><?= $pessoa->telefone ?></td>
-                  <td><?= $pessoa->login ?></td>
-                  <td>
-                      <a class="btn btn-sm btn-secondary" href="controller.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
-                      <a class="btn btn-sm btn-secondary" href="controller.php?action=deletar&id=<?= $pessoa->id ?>"><i class="bi bi-trash"></i></a>
-                  </td>
+                  <td><?= $user->id ?></td>
+                  <td><?= $user->nome ?></td>
+                  <td><?= $user->perfil ?></td>
+                  <td><?= $user->email ?></td>
+                  <td><?= $user->telefone ?></td>
               </tr>
-              <?php endforeach; ?> -->
+            <?php endforeach; ?> 
       </tbody>
     </table>
   </div>
