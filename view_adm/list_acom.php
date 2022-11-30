@@ -1,3 +1,7 @@
+<?php
+  require_once('../controller/controller.acom.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,30 +70,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ID</td>
-                    <td>Qtd Camas Casal</td>
-                    <td>Qtd Camas Solteiro</td>
-                    <td>Qtd Camas Extras</td>
-                    <td>Tipo</td>
-                    <td>
-                        <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-pencil-square"></i></a>
-                        <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <!-- <?php foreach ($pessoas as $index => $pessoa): ?>
+                <?php foreach ($acoms as $index => $acom): ?>
                   <tr>
-                      <td><?= $pessoa->id ?></td>
-                      <td><?= $pessoa->nome ?></td>
-                      <td><?= $pessoa->nascimento ?></td>
-                      <td><?= $pessoa->telefone ?></td>
-                      <td><?= $pessoa->login ?></td>
+                      <td><?= $acom->id ?></td>
+                      <td><?= $acom->qtd_casal ?></td>
+                      <td><?= $acom->qtd_solt ?></td>
+                      <td><?= $acom->qtd_ext ?></td>
+                      <td><?= $acom->tipo ?></td>
                       <td>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=deletar&id=<?= $pessoa->id ?>"><i class="bi bi-trash"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=delete&id=<?= $acom->id ?>"><i class="bi bi-trash"></i></a>
                       </td>
                   </tr>
-                  <?php endforeach; ?> -->
+                  <?php endforeach; ?>
             </tbody>
         </table>
     </div>
