@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +26,10 @@
             </ul>
         <?php endif; ?>
         <?php if(empty($_SESSION) !== true): ?>
-            <p>Olá, <?= $_SESSION['nome'] ?></p> 
+            <ul>
+                <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
+                <li><a href="../controller.user.php?action=logout">Sair</a></li>
+            </ul>
         <?php endif; ?>
     </header>
 
