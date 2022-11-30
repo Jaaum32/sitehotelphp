@@ -52,6 +52,7 @@
                 //iniciar a sessão
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nome'] = $user->nome;
+                header('location: ../view_user/index.php');
             }else{
                 //exibir que o usuário digitou uma senha errada
             }
@@ -60,6 +61,9 @@
         $view = '../view_user/index.php';
         //header('location: '.$view);
         
+    }else if($action == "logout"){
+        session_destroy();
+        header('location: ../view_user/index.php');
     }
 
     if($view == '../view_adm/list_users.php'){
