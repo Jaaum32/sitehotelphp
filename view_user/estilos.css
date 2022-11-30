@@ -1,75 +1,86 @@
-body{
+body {
     margin: 0%;
-    padding:0%;
+    padding: 0%;
 }
 
-html, body{
+html,
+body {
     height: 100%;
     width: 100%;
 }
 
-h1,h2{
+h1,
+h2 {
     font-family: 'Gemunu Libre', sans-serif;
     margin: 0px;
 }
 
-h2{
-  
-  color: #E9C2ED;
+h2 {
+
+    color: #E9C2ED;
 }
 
-html{
+html {
     font-family: 'Montserrat', sans-serif;
 }
 
-header{
-    padding: 10px;
+header {
+    padding: 15px;
     text-align: center;
     font-size: 32px;
     min-width: 90px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
 }
 
-
-nav {
-    float:left;
-    width:15%;
-}
-
-nav ul{
+header ul {
+    font-size: 16px;
     list-style-type: none;
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-nav ul li a:hover{
+nav {
+    float: left;
+    width: 15%;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+nav ul li a:hover {
     color: #FF6686;
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
 main {
     display: flex;
     flex-direction: column;
-    float:left;
-    width:70%;
+    float: left;
+    width: 70%;
     min-height: 100%;
     text-align: center;
     align-items: center;
 }
 
-main img{
+main img {
     margin: 10px;
     max-width: 640px;
 }
 
 aside {
-    float:right;
-    width:15%;
+    float: right;
+    width: 15%;
     min-height: 100%;
 }
 
@@ -77,19 +88,19 @@ footer {
     clear: both;
 }
 
-.parcerias{
+.parcerias {
     width: 100%;
 }
 
-#this{
+#this {
     color: #F9E6D3;
 }
 
-thead{
+thead {
     background-color: #BCBCBC;
 }
 
-table{
+table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -99,84 +110,82 @@ table{
     font-family: 'Montserrat', sans-serif;
 }
 
-th,td{
+th,
+td {
     padding: 12px 15px;
 }
 
- tbody tr {
+tbody tr {
     border-bottom: 1px solid #BCBCBC;
 }
 
- tbody tr:nth-of-type(even) {
+tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
- tbody tr:last-of-type {
+tbody tr:last-of-type {
     border-bottom: 2px solid #BCBCBC;
 }
 
- tbody tr.active-row {
+tbody tr.active-row {
     font-weight: bold;
     color: #BCBCBC;
 }
 
-
-
-
-
-
 .gradient {
-  background-image: linear-gradient(to bottom, #E9C2ED,#FF6686);
-  color: black;
-  background-clip: text;
-  -webkit-background-clip: text;
+    background-image: linear-gradient(to bottom, #E9C2ED, #FF6686);
+    color: black;
+    background-clip: text;
+    -webkit-background-clip: text;
 
-  /* Adicionado: */
-  -webkit-text-fill-color: transparent;
+    /* Adicionado: */
+    -webkit-text-fill-color: transparent;
 }
 
-footer{
-  font-size: 10px;
-  min-width: 90px;
-  background-color: #BCBCBC;
-  text-align: center;
+footer {
+    font-size: 10px;
+    min-width: 90px;
+    background-color: #BCBCBC;
+    text-align: center;
 }
 
-fieldset{
+fieldset {
     margin: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
 
-form{
+form {
     align-items: center;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
 
- label{
+label {
     margin-top: 16px;
 }
 
-#button{
+#button {
     margin-bottom: 10px;
     margin-left: 0px;
     margin-right: 0px;
-        padding: 6px 32px;
-        box-shadow: 0px 0px 12px -2px rgba(0,0,0,0.5);
-        line-height: 1.25;
-        background: #FF5E85;
-        text-decoration: none;
-        color: white;
-        font-size: 16px;
-        text-transform: uppercase;
-        position: relative;
-        overflow: hidden;
+    padding: 6px 32px;
+    box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.5);
+    line-height: 1.25;
+    background: #FF5E85;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
- input,select, textarea{
+input,
+select,
+textarea {
     height: 32px;
     width: 256px;
     border-radius: 10px;
@@ -186,56 +195,64 @@ form{
 }
 
 
-input:focus, select:focus, textarea:focus{
+input:focus,
+select:focus,
+textarea:focus {
     box-shadow: 0 0 20px #EBA0DD;
     border: 3px dotted black;
 }
 
-@media only screen and (max-width: 860px){
-    aside{
+@media only screen and (max-width: 860px) {
+    aside {
         display: none;
     }
 
-    main{
+    main {
         width: 75%;
     }
-    nav{
+
+    nav {
         width: 15%;
     }
-    main img{
+
+    main img {
         width: 70%;
     }
-    main table{
+
+    main table {
         width: 70%;
     }
 }
 
-@media only screen and (max-width: 640px){
-    main img{
+@media only screen and (max-width: 640px) {
+    main img {
         width: 70%;
     }
-    main{
+
+    main {
         width: 95%;
         padding: 2.5%;
     }
-    nav{
+
+    nav {
         width: 100%;
         float: top;
         height: 15%;
     }
-    nav ul{
+
+    nav ul {
         display: flex;
         flex-direction: row;
     }
 
-    nav ul a{
+    nav ul a {
         display: flex;
         flex-direction: row;
         padding: 0px;
         font-size: 10px;
     }
 
-    main table{
+    main table {
         width: 70%;
         font-size: 7px;
     }
