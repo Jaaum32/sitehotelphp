@@ -1,3 +1,11 @@
+<?php
+    require_once('../controller/conexao.php');
+    echo "";
+
+    $nome = $_POST['nome'];
+    echo $nome;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,12 +42,12 @@
     </aside>
 
     <main>
-        <form>
+        <form action="" method="post">
             <fieldset title="">
                 <legend>Cadastro</legend>
 
                 <label for="">Nome</label>
-                <input type="text" name="" id="" placeholder="Juca Subjuca">
+                <input type="text" name="nome" value="" id="" placeholder="Juca Subjuca">
 
                 <label for="">Perfil</label>
                 <input type="text" name="" id="" placeholder="Juca02">
