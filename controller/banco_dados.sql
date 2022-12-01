@@ -17,15 +17,19 @@ CREATE TABLE tb_acomodacao(
     id int(11) NOT NULL, --AUTO_INCREMENT
     qtd_casal int DEFAULT NULL,
     qtd_solt int DEFAULT NULL,
-    qtd_ext int DEFAULT NULL,
+    capacidade int DEFAULT NULL,
     tipo VARCHAR(20) DEFAULT NULL,
-    PRIMARY KEY(id)
+    subtipo VARCHAR(20) DEFAULT NULL,
+    id_tarifa int(11) DEFAULT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id_tarifa) REFERENCES tb_tarifa(id)
 );
 
 CREATE TABLE tb_tarifa (
     id int(11) NOT NULL, --AUTO_INCREMENT
-    tipo VARCHAR(20) DEFAULT NULL,
-    preco DECIMAL DEFAULT NULL
+    preco DECIMAL DEFAULT NULL,
+    precoC DECIMAL DEFAULT NULL,
+    precoA DECIMAL DEFAULT NULL,
     PRIMARY KEY(id)
 );
 
@@ -36,6 +40,6 @@ CREATE TABLE tb_reserva (
     data_in date DEFAULT NULL,
     data_out date DEFAULT NULL,
     qtd_hospedes int DEFAULT NULL,
-    preco DECIMAL DEFAULT NULL
-    PRIMARY KEY(id),
+    preco DECIMAL DEFAULT NULL,
+    PRIMARY KEY(id)
 );

@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="lista_users.php">Users</a>
+                        <a class="nav-link" aria-current="page" href="list_users.php">Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Acomodações</a>
@@ -64,8 +64,8 @@
                     <th>ID</th>
                     <th>Qtd Camas Casal</th>
                     <th>Qtd Camas Solteiro</th>
-                    <th>Qtd Camas Extras</th>
                     <th>Tipo</th>
+                    <th>Subtipo</th>
                     <th></th>
                 </tr>
             </thead>
@@ -75,8 +75,8 @@
                       <td><?= $acom->id ?></td>
                       <td><?= $acom->qtd_casal ?></td>
                       <td><?= $acom->qtd_solt ?></td>
-                      <td><?= $acom->qtd_ext ?></td>
                       <td><?= $acom->tipo ?></td>
+                      <td><?= $acom->subtipo ?></td>
                       <td>
                           <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
                           <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=delete&id=<?= $acom->id ?>"><i class="bi bi-trash"></i></a>

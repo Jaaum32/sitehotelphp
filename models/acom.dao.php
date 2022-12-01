@@ -9,14 +9,17 @@ require_once('../controller/conexao.php');
 
         function createAcom($acom){
             $sql = 'INSERT INTO tb_acomodacao (
-                qtd_casal, qtd_solt, qtd_ext, tipo)
-                VALUES (:qtd_casal, :qta_solt, :qtd_ext, :tipo);';
+                qtd_casal, qtd_solt, capacidade, tipo, subtipo, id_tarifa)
+                VALUES (:qtd_casal, :qta_solt, :capacidade, :tipo, :subtipo, :id_tarifa);';
 
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':qtd_casal', $acom['qtd_casal']);
             $stmt->bindValue(':qtd_solt', $acom['qtd_solt']);
-            $stmt->bindValue(':qtd_ext', $acom['qtd_ext']);
+            $stmt->bindValue(':capacidade', ($acom['qtd_casal'] * 2 + $acom['qtd_solt']));
             $stmt->bindValue(':tipo', $acom['tipo']);
+            $stmt->bindValue(':subtipo', $acom['subtipo']);
+            $stmt->bindValue(':id_tarifa', $acom['id_tarifa']);
+
 
             return $stmt->execute();
         }
