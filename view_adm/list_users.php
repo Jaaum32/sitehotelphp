@@ -70,6 +70,7 @@
         </tr>
       </thead>
       <tbody>
+
          <?php foreach ($users as $index => $user): ?>
               <tr>
                   <td><?= $user->id ?></td>
@@ -80,6 +81,8 @@
                   <!-- <td><a class="btn btn-sm btn-secondary" href="../controller/controller.user.php?action=delete&id=<?= $user->id ?>"><i class="bi bi-trash"></i></a></td> -->
               </tr>
             <?php endforeach; ?> 
+
+            
       </tbody>
     </table>
   </div>

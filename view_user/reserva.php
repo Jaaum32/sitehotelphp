@@ -1,5 +1,6 @@
 <?php
     session_start();
+    //require_once("../controller/controller.acom.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../estilos/estilos.css">
 </head>
 
 <body>
@@ -38,39 +39,39 @@
 
     <nav>
         <ul>
-            <li><a href="index.php">O Hotel</a></li>
-            <li><a href="faleconosco.php">Fale Conosco</a></li>
-            <li><a href="reserva.php" id="this">Reserva</a></li>
-            <li><a href="acomodacoes.php">Acomodações</a></li>
+            <li><a href="../view_user/index.php">O Hotel</a></li>
+            <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
+            <li><a href="../view_user/reserva.php" id="this">Reserva</a></li>
+            <li><a href="../view_user/acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>
 
     <aside>
-        <img src="./imagens/lorem-ipson.png" alt="" class="parcerias">
+        <img src="../imagens/lorem-ipson.png" alt="" class="parcerias">
     </aside>
 
     <main>
         <div class="reserva">
-        <form>
+        <form action="../controller/controller.acom.php?action=procurar" method="POST">
             <fieldset title="">
 
                 <legend>Data da Reserva</legend>
                 <label for="">Data de entrada</label>
-                <input type="date" name="" id="">
+                <input type="date" name="data_entrada" id="">
 
                 <label for="">Data de saída</label>
-                <input type="date" name="" id="">
+                <input type="date" name="data_saida" id="">
 
                 <label for="">Adultos</label>
-                <input type="number" name="" id="" min="1" max="4" value="1">
+                <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= @$_REQUEST['num_adultos']?>">
 
                 <label for="">Crianças</label>
-                <input type="number" name="" id="" min="0" max="4" value="0">
+                <input type="number" name="num_criancas" id="" min="0" max="4" value="<?= @$_REQUEST['num_criancas']?>">
 
                 <label for="">Acomodações</label>
-                <select name="acomodações" id="">
-                    <option value="std">Standart</option>
-                    <option value="lux">Luxo</option>
+                <select name="tipo" id="" >
+                    <option value="Standard">Standart</option>
+                    <option value="Luxo">Luxo</option>
                 </select>
 
 
@@ -80,25 +81,31 @@
         </form>
         <div>
             <h4>Acomodações encontradas</h4>
-            <div class="card">
-                <img src="./imagens/bed.jpg" alt="" class="">
-                <ul>
-                    <li>
-                        <p>Standard</p>
-                        
-                    </li>
-                    <li>
-                        <p>Duplo</p>
-                        
-                    </li>
-                    <li>
-                        <p>2 camas de solteiro</p>
-                    </li>
-                </ul>
-                <input type="button" value="Reservar">
 
-            
-            </div>
+            <?php foreach($acoms as $index => $acom): ?>
+                <div class="card">
+                    <img src="../imagens/bed.jpg" alt="" class="">
+                    <ul>
+                        <li>
+                            <p><?= @$acom->tipo ?></p>
+                            
+                        </li>
+                        <li>
+                            <p> <?= @$acom->subtipo ?> </p>
+                            
+                        </li>
+                        <li>
+                            <p>2 camas de solteiro</p>
+                        </li>
+                    </ul>
+                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>" method="post">
+                        <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                        <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
+                        <input type="submit" value="Reservar">
+                    </form>
+                    
+                </div>
+            <?php endforeach; ?>
         </div>
         </div>
     </main>

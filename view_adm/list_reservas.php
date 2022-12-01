@@ -1,3 +1,7 @@
+<?php
+  require_once('../controller/controller.res.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -81,19 +85,20 @@
                         <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
-                <!-- <?php foreach ($pessoas as $index => $pessoa): ?>
+                <?php foreach ($reservas as $index => $reserva): ?>
                   <tr>
-                      <td><?= $pessoa->id ?></td>
-                      <td><?= $pessoa->nome ?></td>
-                      <td><?= $pessoa->nascimento ?></td>
-                      <td><?= $pessoa->telefone ?></td>
-                      <td><?= $pessoa->login ?></td>
+                      <td><?= $reserva->id ?></td>
+                      <td><?= $reserva->user_id ?></td>
+                      <td><?= $reserva->acom_id ?></td>
+                      <td><?= $reserva->data_in ?></td>
+                      <td><?= $reserva->data_out ?></td>
+                      <td><?= $reserva->qtd_hospedes ?></td>
+                      <td><?= $reserva->preco ?></td>
                       <td>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=deletar&id=<?= $pessoa->id ?>"><i class="bi bi-trash"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.res.php?action=delete&id=<?= $reserva->id ?>"><i class="bi bi-trash"></i></a>
                       </td>
                   </tr>
-                  <?php endforeach; ?> -->
+                  <?php endforeach; ?>
             </tbody>
         </table>
     </div>

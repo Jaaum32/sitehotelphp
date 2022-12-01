@@ -6,6 +6,7 @@
     $view = '../view_adm/list_users.php';//view padrão
     $pessoaDAO = new PessoaDAO($pdo);
     $action = @$_REQUEST['action'];
+    echo @$action;
 
     //echo $action;
 
@@ -52,14 +53,12 @@
                 //iniciar a sessão
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nome'] = $user->nome;
-                header('location: ../view_user/index.php');
+                //$view = @$url;
+                header('location: ../view_user/reserva.php');
             }else{
                 //exibir que o usuário digitou uma senha errada
             }
         }
-
-        $view = '../view_user/index.php';
-        //header('location: '.$view);
         
     }else if($action == "logout"){
         session_destroy();
@@ -70,6 +69,6 @@
         $users = $pessoaDAO->getAll();
     }
     
-    require_once($view);
+    //require_once($view);
 
 ?>

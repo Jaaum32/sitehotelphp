@@ -72,6 +72,21 @@ require_once('../controller/conexao.php');
             return $stmt->fetchObject();
         }
 
+        function getAcomByAllInfo($acom){
+
+            $tipo = $acom['tipo'];
+
+            $sql = 'SELECT * FROM tb_acomodacao WHERE capacidade >= :capacidade AND tipo = :tipo';
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(":capacidade", $acom['num_adultos'] + $acom['num_criancas']);
+            $stmt->bindValue(":tipo",$tipo);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        }
+
         function update($acom){
 
             $tipo = "";

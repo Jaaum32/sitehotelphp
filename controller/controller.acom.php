@@ -43,6 +43,10 @@
             $view = "../view_adm/form_acom.php";
             $acomodacao = $acomDAO->getAcomByID($_REQUEST['id']);
         }
+    }else if($action == "procurar" || $action == "login"){
+        $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
+        $view = "../view_user/reserva.php";
+
     }
 
     if($view == '../view_adm/list_acom.php'){

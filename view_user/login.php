@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    echo $_SESSION['id'];
+    @session_start();
+    echo @$_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../estilos/estilos.css">
 </head>
 
 <body>
@@ -39,15 +39,15 @@
 
     <nav>
         <ul>
-            <li><a href="index.php">O Hotel</a></li>
-            <li><a href="faleconosco.php">Fale Conosco</a></li>
-            <li><a href="reserva.php" id="this">Reserva</a></li>
-            <li><a href="acomodacoes.php">Acomodações</a></li>
+            <li><a href="../view_user/index.php">O Hotel</a></li>
+            <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
+            <li><a href="../view_user/reserva.php" id="this">Reserva</a></li>
+            <li><a href="../view_user/acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>
 
     <aside>
-        <img src="./imagens/lorem-ipson.png" alt="" class="parcerias">
+        <img src="../imagens/lorem-ipson.png" alt="" class="parcerias">
     </aside>
 
     <main>

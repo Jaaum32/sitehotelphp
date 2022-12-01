@@ -46,5 +46,5 @@
         $tarifas = $tarifaDAO->getAll();
     }
 
-    require_once($view);
+    //require_once($view);
 ?>

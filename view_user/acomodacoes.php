@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../estilos/estilos.css">
     <style>
         main img{
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -47,10 +47,10 @@
 
         <div>
             <ul>
-                <li><a href="index.php">O Hotel</a></li>
-                <li><a href="faleconosco.php">Fale Conosco</a></li>
-                <li><a href="reserva.php">Reserva</a></li>
-                <li><a href="acomodacoes.php" id="this">Acomodações</a></li>
+                <li><a href="../view_user/index.php">O Hotel</a></li>
+                <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
+                <li><a href="../view_user/reserva.php">Reserva</a></li>
+                <li><a href="../view_user/acomodacoes.php" id="this">Acomodações</a></li>
             </ul>
         </div>
     </nav>
@@ -58,7 +58,7 @@
     <main>
         <h2>Acomodações</h2>
         <h4>Apartamentos Standart</h4>
-            <img src="./imagens/bed.jpg" alt="" class="room">
+            <img src="../imagens/bed.jpg" alt="" class="room">
         
         <ul>
             <li>Cama king size</li>
@@ -70,7 +70,7 @@
         </ul>
 
         <h4>Apartamentos Luxo</h4>
-        <img src="./imagens/bed-lux.jpg" alt="" class="room">
+        <img src="../imagens/bed-lux.jpg" alt="" class="room">
         <ul>
             <li>Cama queen size</li>
             <li>Banheiro com espaço com banheira de hidromassagem</li>
@@ -164,7 +164,7 @@
     </main>
 
     <aside>
-        <img class="parcerias" src="./imagens/lorem-ipson.png" alt="">
+        <img class="parcerias" src="../imagens/lorem-ipson.png" alt="">
     </aside>
 
     <footer>
