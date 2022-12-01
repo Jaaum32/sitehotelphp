@@ -78,14 +78,14 @@
                       <td><?= $acom->tipo ?></td>
                       <td><?= $acom->subtipo ?></td>
                       <td>
-                          <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=update&id=<?= $acom->id ?>"><i class="bi bi-pencil-square"></i></a>
                           <a class="btn btn-sm btn-secondary" href="../controller/controller.acom.php?action=delete&id=<?= $acom->id ?>"><i class="bi bi-trash"></i></a>
                       </td>
                   </tr>
                   <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
+    </div>  
 
 </body>
 

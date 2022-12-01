@@ -8,16 +8,35 @@ require_once('../controller/conexao.php');
         }
 
         function createAcom($acom){
+
+            $tipo = "";
+            $subtipo = "";
+
+            if($acom['id_tarifa']>3){
+                $tipo = "Luxo";
+            }else{
+                $tipo = "Standard";
+            }
+
+            if($acom['id_tarifa'] % 3 == 0){
+                $subtipo = "Familia";
+            }else if($acom['id_tarifa'] % 2 == 0){
+                $subtipo = "Triplo";
+            }else{
+                $subtipo = "Duplo";
+            }
+
+
             $sql = 'INSERT INTO tb_acomodacao (
                 qtd_casal, qtd_solt, capacidade, tipo, subtipo, id_tarifa)
-                VALUES (:qtd_casal, :qta_solt, :capacidade, :tipo, :subtipo, :id_tarifa);';
+                VALUES (:qtd_casal, :qtd_solt, :capacidade, :tipo, :subtipo, :id_tarifa);';
 
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':qtd_casal', $acom['qtd_casal']);
             $stmt->bindValue(':qtd_solt', $acom['qtd_solt']);
             $stmt->bindValue(':capacidade', ($acom['qtd_casal'] * 2 + $acom['qtd_solt']));
-            $stmt->bindValue(':tipo', $acom['tipo']);
-            $stmt->bindValue(':subtipo', $acom['subtipo']);
+            $stmt->bindValue(':tipo', $tipo);
+            $stmt->bindValue(':subtipo', $subtipo);
             $stmt->bindValue(':id_tarifa', $acom['id_tarifa']);
 
 
@@ -52,6 +71,41 @@ require_once('../controller/conexao.php');
             $stmt->execute();
 
             return $stmt->fetchObject();
+        }
+
+        function update($acom){
+
+            $tipo = "";
+            $subtipo = "";
+
+            if($acom['id_tarifa']>3){
+                $tipo = "Luxo";
+            }else{
+                $tipo = "Standard";
+            }
+
+            if($acom['id_tarifa'] % 3 == 0){
+                $subtipo = "Familia";
+            }else if($acom['id_tarifa'] % 2 == 0){
+                $subtipo = "Triplo";
+            }else{
+                $subtipo = "Duplo";
+            }
+
+            $sql = "UPDATE tb_acomodacao
+                SET qtd_casal = :qtd_casal, qtd_solt = :qtd_solt, capacidade = :capacidade, tipo = :tipo, subtipo = :subtipo, id_tarifa = :id_tarifa
+                WHERE id = :id";;
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':qtd_casal', $acom['qtd_casal']);
+            $stmt->bindValue(':qtd_solt', $acom['qtd_solt']);
+            $stmt->bindValue(':capacidade', ($acom['qtd_casal'] * 2 + $acom['qtd_solt']));
+            $stmt->bindValue(':tipo', $tipo);
+            $stmt->bindValue(':subtipo', $subtipo);
+            $stmt->bindValue(':id_tarifa', $acom['id_tarifa']);
+            $stmt->bindValue(':id', $acom['id']);
+
+            return $stmt->execute();
         }
     }
 ?>
