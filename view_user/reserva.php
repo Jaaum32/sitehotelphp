@@ -52,6 +52,7 @@
     </aside>
 
     <main>
+        ERICKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
         <div class="reserva">
         <form action="../controller/controller.acom.php?action=procurar" method="POST">
             <fieldset title="">
