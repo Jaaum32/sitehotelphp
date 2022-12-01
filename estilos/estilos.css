@@ -1,5 +1,4 @@
 body {
-    /* hdauihdwid */
     margin: 0%;
     padding: 0%;
 }
@@ -94,6 +93,20 @@ main img {
 
 .reserva img{
     max-width: 200px;
+}
+
+.reserva select{
+    height: 56px;
+    width: 280px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+
+.nulo{
+    min-width: 640px;
+    min-height: 200px;
 }
 
 .card{
