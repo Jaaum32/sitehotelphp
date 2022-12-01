@@ -49,5 +49,19 @@ require_once('../controller/conexao.php');
 
             return $stmt->fetchObject();
         }
+
+        function update($tarifa){
+            $sql = "UPDATE tb_tarifa
+            SET preco = :preco, precoC = :precoC, precoA = :precoA
+            WHERE id = :id";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(':preco', $tarifa['preco']);
+            $stmt->bindValue(':precoC', $tarifa['precoC']);
+            $stmt->bindValue(':precoA', $tarifa['precoA']);
+            $stmt->bindValue(':id', $tarifa['id']);
+
+            return $stmt->execute();
+        }
     }
 ?>

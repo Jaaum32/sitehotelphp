@@ -50,19 +50,8 @@
     </aside>
 
     <main>
+        <div class="reserva">
         <form>
-            <fieldset title="">
-                <legend>Responsável</legend>
-                <label>Nome</label>
-                <input type="text" placeholder="Fulano de tal">
-
-                <label for="">E-mail</label>
-                <input type="email" name="" id="" placeholder="fulano@provedor.com">
-
-                <label for="">Telefone</label>
-                <input type="tel" name="" id="" placeholder="(xx) xxxxx-xxxx">
-            </fieldset>
-
             <fieldset title="">
 
                 <legend>Data da Reserva</legend>
@@ -86,9 +75,32 @@
 
 
             </fieldset>
-            <input type="submit" name="" id="button" value="Reservar">
+            <input type="submit" name="" id="button" value="Buscar">
         
         </form>
+        <div>
+            <h4>Acomodações encontradas</h4>
+            <div class="card">
+                <img src="./imagens/bed.jpg" alt="" class="">
+                <ul>
+                    <li>
+                        <p>Standard</p>
+                        
+                    </li>
+                    <li>
+                        <p>Duplo</p>
+                        
+                    </li>
+                    <li>
+                        <p>2 camas de solteiro</p>
+                    </li>
+                </ul>
+                <input type="button" value="Reservar">
+
+            
+            </div>
+        </div>
+        </div>
     </main>
 
 

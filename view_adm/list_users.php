@@ -66,7 +66,7 @@
           <th>Login</th>
           <th>Email</th>
           <th>Telefone</th>
-          <th></th>
+          <!-- <th></th> -->
         </tr>
       </thead>
       <tbody>
@@ -77,7 +77,7 @@
                   <td><?= $user->perfil ?></td>
                   <td><?= $user->email ?></td>
                   <td><?= $user->telefone ?></td>
-                  <td><a class="btn btn-sm btn-secondary" href="../controller/controller.user.php?action=delete&id=<?= $user->id ?>"><i class="bi bi-trash"></i></a></td>
+                  <!-- <td><a class="btn btn-sm btn-secondary" href="../controller/controller.user.php?action=delete&id=<?= $user->id ?>"><i class="bi bi-trash"></i></a></td> -->
               </tr>
             <?php endforeach; ?> 
       </tbody>

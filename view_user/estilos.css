@@ -1,4 +1,5 @@
 body {
+    /* hdauihdwid */
     margin: 0%;
     padding: 0%;
 }
@@ -84,6 +85,34 @@ main {
 main img {
     margin: 10px;
     max-width: 640px;
+}
+
+.reserva {
+    display:flex;
+    flex-direction: row;
+}
+
+.reserva img{
+    max-width: 200px;
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    border: #FF5E85 solid 1px;
+    min-width: 640px;
+    max-height: 200px;
+}
+
+.card ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.card ul li p{
+    margin: 2px;
 }
 
 aside {

@@ -56,23 +56,23 @@
 
         <?php endif; ?> -->
 
-        <form action="controller.php" method="GET">
-            <input type="hidden" name="action" value="salvar">
-            <input type="hidden" name="id" value="">
+        <form action="../controller/controller.tar.php" method="POST">
+            <input type="hidden" name="action" value="cadastrar">
+            <input type="hidden" name="id" value="<?= @$tarifa->id ?>">
 
             <div>
                 <label>Preço</label>
-                <input type="number" name="" value="" class="form-control">
+                <input type="number" name="preco" value="<?= @$tarifa->preco ?>" class="form-control">
             </div>
 
             <div>
                 <label>Preço adicional de criança</label>
-                <input type="number" name="" value="" class="form-control">
+                <input type="number" name="precoC" value="<?= @$tarifa->precoC ?>" class="form-control">
             </div>
 
             <div>
                 <label>Preço adicional de adulto</label>
-                <input type="number" name="" value="" class="form-control">
+                <input type="number" name="precoA" value="<?= @$tarifa->precoA ?>" class="form-control">
             </div>
 
 

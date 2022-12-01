@@ -8,7 +8,6 @@ require_once('../controller/conexao.php');
         }
 
         function createAcom($acom){
-
             $tipo = "";
             $subtipo = "";
 

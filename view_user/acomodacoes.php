@@ -56,11 +56,8 @@
     </nav>
 
     <main>
-        
-            
-        
-            <h2>Acomodações</h2>
-            <h4>Apartamentos Standart</h4>
+        <h2>Acomodações</h2>
+        <h4>Apartamentos Standart</h4>
             <img src="./imagens/bed.jpg" alt="" class="room">
         
         <ul>
@@ -72,6 +69,7 @@
             <li>TV LED com 40"</li>
         </ul>
 
+        <h4>Apartamentos Luxo</h4>
         <img src="./imagens/bed-lux.jpg" alt="" class="room">
         <ul>
             <li>Cama queen size</li>

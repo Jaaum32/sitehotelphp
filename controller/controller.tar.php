@@ -7,7 +7,12 @@
     $action = @$_REQUEST['action'];
 
     if($action == "cadastrar"){
-        $teste = $tarifaDAO->createTarifa(@$_POST);
+        if(!$_REQUEST['id']){
+            $tarifaDAO->createTarifa(@$_POST);
+        }else{
+            $tarifaDAO->update(@$_POST);
+        }
+        
         $view = '../view_adm/list_tarifas.php';
 
         header('location:'.$view);
@@ -26,6 +31,15 @@
         //     print_r("n removeu");
         //     //tratar quando ngm for excluido
         // }
+
+        $view = '../view_adm/list_tarifas.php';
+
+        header('location:'.$view);
+    }else if($action == "update"){
+        if(@$_REQUEST['id']){
+            $view = "../view_adm/form_tarifas.php";
+            $tarifa = $tarifaDAO->getTarifaById($_REQUEST['id']);
+        }
     }
 
     if($view == '../view_adm/list_tarifas.php'){
