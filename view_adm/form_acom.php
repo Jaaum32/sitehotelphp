@@ -72,15 +72,18 @@
             </div>
 
             <div>
-                <label>Qts Camas Extras</label>
-                <input type="number" name="" value="" class="form-control">
-            </div>
-
-            <div>
                 <label>Tipo</label>
                 <select class="form-select" aria-label="Default select example">
-                    <option value="">Standard</option>
-                    <option value="">Luxo</option>
+                    <optgroup label="Standard">
+                        <option value="1">S-Duplo</option>
+                        <option value="2">S-Triplo</option>
+                        <option value="3">S-Família</option>
+                    </optgroup>
+                    <optgroup label="Luxo">
+                        <option value="4">L-Duplo</option>
+                        <option value="5">L-Triplo</option>
+                        <option value="6">L-Família</option>
+                    </optgroup>
                   </select>
 
             </div>
