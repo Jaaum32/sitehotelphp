@@ -38,7 +38,7 @@
         <?php if(empty($_SESSION) !== true): ?>
             <ul>
                 <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller.user.php?action=logout">Sair</a></li>
+                <li><a href="../controller/controller.user.php?action=logout">Sair</a></li>
             </ul>
         <?php endif; ?>
     </header>

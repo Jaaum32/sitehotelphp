@@ -56,19 +56,19 @@
 
         <?php endif; ?> -->
 
-        <form action="controller.php" method="GET">
-            <input type="hidden" name="action" value="salvar">
+        <form action="../controller/controller.acom.php" method="POST">
+            <input type="hidden" name="action" value="cadastrar">
             <input type="hidden" name="id" value="">
 
 
             <div>
                 <label>Qtd Camas Casal</label>
-                <input type="number" name="" class="form-control" value="">
+                <input type="number" name="qtd_casal" class="form-control" value="">
             </div>
 
             <div>
                 <label>Qtd Camas Solteiro</label>
-                <input type="number" name="" class="form-control" value="">
+                <input type="number" name="qtd_solt" class="form-control" value="">
             </div>
 
             <div>

@@ -13,6 +13,14 @@ CREATE TABLE tb_usuario (
   UNIQUE(email)
 );
 
+CREATE TABLE tb_tarifa (
+    id int(11) NOT NULL, --AUTO_INCREMENT
+    preco DECIMAL DEFAULT NULL,
+    precoC DECIMAL DEFAULT NULL,
+    precoA DECIMAL DEFAULT NULL,
+    PRIMARY KEY(id)
+);
+
 CREATE TABLE tb_acomodacao(
     id int(11) NOT NULL, --AUTO_INCREMENT
     qtd_casal int DEFAULT NULL,
@@ -23,14 +31,6 @@ CREATE TABLE tb_acomodacao(
     id_tarifa int(11) DEFAULT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(id_tarifa) REFERENCES tb_tarifa(id)
-);
-
-CREATE TABLE tb_tarifa (
-    id int(11) NOT NULL, --AUTO_INCREMENT
-    preco DECIMAL DEFAULT NULL,
-    precoC DECIMAL DEFAULT NULL,
-    precoA DECIMAL DEFAULT NULL,
-    PRIMARY KEY(id)
 );
 
 CREATE TABLE tb_reserva (
