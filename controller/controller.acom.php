@@ -44,14 +44,35 @@
             $acomodacao = $acomDAO->getAcomByID($_REQUEST['id']);
             require_once($view);
         }
-    }else if($action == "procurar" || $action == "login"){
-        $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
+    }else if($action == "procurar"){
+
         require_once("../controller/controller.res.php");
+        $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
+
+        $dataEntrada = $_POST['data_entrada'];
+        $dataSaida = $_POST['data_saida'];
+
 
         foreach($acoms as $index=> $acom){
+
             $reservas = $reservaDAO->getAllDatas($acom->id);
-            print_r($reservas);
-            echo sizeof($reservas);
+
+            foreach($reservas as $index2=> $reserva){
+                echo $reserva->data_in;
+                if($dataEntrada >= $reserva->data_in && $dataEntrada < $reserva->data_out){
+                    unset($acoms[$index]);
+                }
+    
+                if($dataSaida > $reserva->data_in && $dataSaida <= $reserva->data_out){
+                    unset($acoms[$index]);
+            }
+
+
+            
+            }
+
+            //print_r($reservas);
+            //echo sizeof($reservas);
         }
 
 

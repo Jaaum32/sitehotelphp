@@ -7,16 +7,18 @@ require_once('../controller/conexao.php');
             $this->pdo = $pdo;
         }
 
-        function createReserva($reserva, $user_id, $qtd_hospedes, $preco){
+        function createReserva($reserva, $user_id, $qtd_hospedes, $preco, $entrada, $saida){
             //revisar banco de reserva e fazer o código do sql e seus binds
-            $sql = "INSERT INTO tb_reserva(user_id, acom_id,qtd_hospedes, preco)
-            VALUES (:user_id, :acom_id, :qtd_hospedes, :preco)";
+            $sql = "INSERT INTO tb_reserva(user_id, acom_id,qtd_hospedes, preco, data_in, data_out)
+            VALUES (:user_id, :acom_id, :qtd_hospedes, :preco, :data_in, :data_out)";
 
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(":user_id", $user_id);
             $stmt->bindValue(":acom_id", $reserva['acom_id']);
             $stmt->bindValue(":qtd_hospedes", $qtd_hospedes);
             $stmt->bindValue(":preco", $preco);
+            $stmt->bindValue(":data_in", $entrada);
+            $stmt->bindValue(":data_out", $saida);
 
             return $stmt->execute();
         }

@@ -1,6 +1,7 @@
 <?php
     @session_start();
-    require_once("../controller/controller.acom.php");
+    //header('location: ../controller/controller.acom.php?action=procurar');
+    //require_once("../controller/controller.acom.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,10 +58,10 @@
 
                 <legend>Data da Reserva</legend>
                 <label for="">Data de entrada</label>
-                <input type="date" name="data_entrada" id="">
+                <input type="date" name="data_entrada" id="" value="<?= (@$_REQUEST['data_entrada'])? @$_REQUEST['data_entrada']: "2022-12-01" ?>">
 
                 <label for="">Data de saída</label>
-                <input type="date" name="data_saida" id="">
+                <input type="date" name="data_saida" id="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: "2022-12-06" ?>">
 
                 <label for="">Adultos</label>
                 <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= (@$_REQUEST['num_adultos'])? @$_REQUEST['num_adultos']: 1 ?>">
@@ -98,7 +99,7 @@
                             <p>2 camas de solteiro</p>
                         </li>
                     </ul>
-                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>" method="post">
+                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
                         <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
                         <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
                         <input type="submit" value="Reservar">
