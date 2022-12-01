@@ -66,13 +66,15 @@
             </div>
 
             <div>
-                <label>Tipo</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option value="">Standard</option>
-                    <option value="">Luxo</option>
-                  </select>
-
+                <label>Preço adicional de criança</label>
+                <input type="number" name="" value="" class="form-control">
             </div>
+
+            <div>
+                <label>Preço adicional de adulto</label>
+                <input type="number" name="" value="" class="form-control">
+            </div>
+
 
             <div>
                 <button class="btn btn-success mt-3" type="submit">Salvar</button>

@@ -1,3 +1,7 @@
+<?php
+  require_once('../controller/controller.tar.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,41 +55,32 @@
         <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
-                    <th colspan="5">
+                    <th colspan="4">
                         <h3>Tarifas</h3>
                     </th>
                     <th><a href="form_tarifas.php" class="btn btn-dark">Adicionar</a></th>
                 </tr>
                 <tr>
                     <th>ID</th>
-                    <th colspan="2">Tipo</th>
-                    <th colspan="2">Preço</th>
+                    <th>Preço Padrão</th>
+                    <th>Adicional de Criança</th>
+                    <th>Adicional de Adulto</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ID</td>
-                    <td colspan="2">Tipo</td>
-                    <td colspan="2">Preço</td>
-                    <td>
-                        <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-pencil-square"></i></a>
-                        <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
-                <!-- <?php foreach ($pessoas as $index => $pessoa): ?>
+                <?php foreach ($tarifas as $index => $tarifa): ?>
                   <tr>
-                      <td><?= $pessoa->id ?></td>
-                      <td><?= $pessoa->nome ?></td>
-                      <td><?= $pessoa->nascimento ?></td>
-                      <td><?= $pessoa->telefone ?></td>
-                      <td><?= $pessoa->login ?></td>
+                      <td><?= $tarifa->id ?></td>
+                      <td><?= $tarifa->preco ?></td>
+                      <td><?= $tarifa->precoC ?></td>
+                      <td><?= $tarifa->precoA ?></td>
                       <td>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=editar&id=<?= $pessoa->id ?>"><i class="bi bi-pencil-square"></i></a>
-                          <a class="btn btn-sm btn-secondary" href="controller.php?action=deletar&id=<?= $pessoa->id ?>"><i class="bi bi-trash"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.tar.php?action=update&id=<?= $tarifa->id ?>"><i class="bi bi-pencil-square"></i></a>
+                          <a class="btn btn-sm btn-secondary" href="../controller/controller.tar.php?action=delete&id=<?= $tarifa->id ?>"><i class="bi bi-trash"></i></a>
                       </td>
                   </tr>
-                  <?php endforeach; ?> -->
+                  <?php endforeach; ?>
             </tbody>
         </table>
     </div>
