@@ -37,14 +37,21 @@
             $tarifa = $tarifaDAO->getTarifaById($id_tarifa);
 
             $id_user = $_SESSION['id'];
-            $qtd_hospedes = $_REQUEST['qtd_adultos'] + $_REQUEST['qtd_criancas'];
+            $qtd_hospedes = intval($_REQUEST['qtd_adultos']) + intval($_REQUEST['qtd_criancas']);
 
-            $preco = $tarifa->preco + $tarifa->precoA * ($_REQUEST['qtd_adultos'] - 1) +  $tarifa->precoC * $_REQUEST['qtd_criancas'];
+            $preco = $tarifa->preco + $tarifa->precoA * (intval($_REQUEST['qtd_adultos']) - 1) +  $tarifa->precoC * intval($_REQUEST['qtd_criancas']);
 
-            $reservaDAO->createReserva(@$_POST, $id_user, $qtd_hospedes, $preco);
+            $entrada = @$_REQUEST['entrada'];
+            $saida = @$_REQUEST['saida'];
+
+            echo $entrada;
+            echo $saida;
+
+            $reservaDAO->createReserva(@$_POST, $id_user, $qtd_hospedes, $preco, $entrada, $saida);
 
             
-            //$view = "";
+            $view = "../view_user/";
+            header('location: ' . $view);
         }
     }
 
@@ -54,5 +61,5 @@
 
     //require_once($view);
 
-    //echo "sexxxx";
+    //echo "";
 ?>
