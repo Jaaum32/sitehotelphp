@@ -82,7 +82,7 @@
         </form>
         <div>
             <h4>Acomodações encontradas</h4>
-
+            <!-- comentario -->
             <?php if(empty($acoms)): ?>
                 <div class = "nulo">
                     <p>Nenhuma acomodação encontrada dentro do que foi pedido!</p>
