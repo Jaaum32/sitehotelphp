@@ -131,7 +131,6 @@
         <p><img src="https://icons.iconarchive.com/icons/graphicloads/100-flat/256/email-2-icon.png" alt="" width="20"
                 height="20">contato@Hoteloso.com.br</p>
     </footer>
-</body>
-
+    </body>
 </html>
-<!-- joao -->
+Joao
