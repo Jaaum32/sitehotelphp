@@ -58,31 +58,31 @@
 
         <form action="../controller/controller.acom.php" method="POST">
             <input type="hidden" name="action" value="cadastrar">
-            <input type="hidden" name="id" value="">
+            <input type="hidden" name="id" value="<?= @$acomodacao->id ?>">
 
 
             <div>
                 <label>Qtd Camas Casal</label>
-                <input type="number" name="qtd_casal" class="form-control" value="">
+                <input type="number" name="qtd_casal" class="form-control" value="<?= @$acomodacao->qtd_casal ?>">
             </div>
 
             <div>
                 <label>Qtd Camas Solteiro</label>
-                <input type="number" name="qtd_solt" class="form-control" value="">
+                <input type="number" name="qtd_solt" class="form-control" value="<?= @$acomodacao->qtd_solt ?>">
             </div>
 
             <div>
                 <label>Tipo</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="id_tarifa" aria-label="Default select example">
                     <optgroup label="Standard">
-                        <option value="1">S-Duplo</option>
-                        <option value="2">S-Triplo</option>
-                        <option value="3">S-Família</option>
+                        <option <?= (@$acomodacao->id_tarifa == 1)? 'selected' : '' ?> value="1">S-Duplo</option>
+                        <option <?= (@$acomodacao->id_tarifa == 2)? 'selected' : '' ?> value="2">S-Triplo</option>
+                        <option <?= (@$acomodacao->id_tarifa == 3)? 'selected' : '' ?> value="3">S-Família</option>
                     </optgroup>
                     <optgroup label="Luxo">
-                        <option value="4">L-Duplo</option>
-                        <option value="5">L-Triplo</option>
-                        <option value="6">L-Família</option>
+                        <option <?= (@$acomodacao->id_tarifa == 4)? 'selected' : '' ?> value="4">L-Duplo</option>
+                        <option <?= (@$acomodacao->id_tarifa == 5)? 'selected' : '' ?> value="5">L-Triplo</option>
+                        <option <?= (@$acomodacao->id_tarifa == 6)? 'selected' : '' ?> value="6">L-Família</option>
                     </optgroup>
                   </select>
 
