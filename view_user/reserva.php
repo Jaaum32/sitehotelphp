@@ -84,30 +84,36 @@
         <div>
             <h4>Acomodações encontradas</h4>
 
-            <?php foreach($acoms as $index => $acom): ?>
-                <div class="card">
-                    <img src="../imagens/bed.jpg" alt="" class="">
-                    <ul>
-                        <li>
-                            <p><?= @$acom->tipo ?></p>
-                            
-                        </li>
-                        <li>
-                            <p> <?= @$acom->subtipo ?> </p>
-                            
-                        </li>
-                        <li>
-                            <p>2 camas de solteiro</p>
-                        </li>
-                    </ul>
-                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>" method="post">
-                        <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
-                        <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
-                        <input type="submit" value="Reservar">
-                    </form>
-                    
+            <?php if(empty($acoms)): ?>
+                <div class = "nulo">
+                    <p>Nenhuma acomodação encontrada dentro do que foi pedido!</p>
                 </div>
-            <?php endforeach; ?>
+            <?php else: ?>
+                <?php foreach($acoms as $index => $acom): ?>
+                    <div class="card">
+                        <img src="../imagens/bed.jpg" alt="" class="">
+                        <ul>
+                            <li>
+                                <p><?= @$acom->tipo ?></p>
+                                
+                            </li>
+                            <li>
+                                <p><?= @$acom->subtipo ?></p>
+                                
+                            </li>
+                            <li>
+                                <p>2 camas de solteiro</p>
+                            </li>
+                        </ul>
+                        <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>" method="post">
+                            <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                            <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
+                            <input type="submit" value="Reservar">
+                        </form>
+                        
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         </div>
     </main>
