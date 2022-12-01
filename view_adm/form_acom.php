@@ -63,12 +63,12 @@
 
             <div>
                 <label>Qtd Camas Casal</label>
-                <input type="number" name="qtd_casal" class="form-control" value="<?= @$acomodacao->qtd_casal ?>">
+                <input required type="number" name="qtd_casal" class="form-control" value="<?= @$acomodacao->qtd_casal ?>">
             </div>
 
             <div>
                 <label>Qtd Camas Solteiro</label>
-                <input type="number" name="qtd_solt" class="form-control" value="<?= @$acomodacao->qtd_solt ?>">
+                <input required type="number" name="qtd_solt" class="form-control" value="<?= @$acomodacao->qtd_solt ?>">
             </div>
 
             <div>
@@ -90,7 +90,7 @@
 
             <div>
                 <button class="btn btn-success mt-3" type="submit">Salvar</button>
-                <a href="list_acom.php" class="btn btn-light mt-3 ms-1">Cancelar</a>
+                <a href="../view_adm/list_acom.php" class="btn btn-light mt-3 ms-1">Cancelar</a>
             </div>
 
         </form>

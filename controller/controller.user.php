@@ -1,25 +1,29 @@
 <?php
     require_once('conexao.php');
     require_once('../models/user.dao.php');
-    session_start();
+    @session_start();
 
     $view = '../view_adm/list_users.php';//view padrão
     $pessoaDAO = new PessoaDAO($pdo);
     $action = @$_REQUEST['action'];
-    echo @$action;
-
-    //echo $action;
 
     if(@$action == "cadastrar"){
+        if(@$_POST['senha'] == @$_POST['confirmar_senha']){
+            $pessoaDAO->createUser(@$_POST);
+            $view = '../view_user/index.php';
+
+            $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
+            $_SESSION['id'] = $id;
+            $_SESSION['nome'] = @$_POST['nome'];
+
+            header('location: '.$view);
+        }else{
+            $message = "As duas senhas devem ser iguais";
+            $view = "../view_user/signup.php";
+        require_once($view);
+        }
         
-        $teste = $pessoaDAO->createUser(@$_POST);
-        $view = '../view_user/index.php';
-
-        $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
-        $_SESSION['id'] = $id;
-        $_SESSION['nome'] = @$_POST['nome'];
-
-        header('location: '.$view);
+        
         //require_once($view);
     }else if(@$action == "delete"){
         $id = @$_REQUEST['id'];
@@ -41,13 +45,13 @@
 
     }else if($action == "login"){
         $email = @$_POST['email'];
-        //echo @$_POST['pass'];
 
         $user = $pessoaDAO->getUserByEmail($email);
 
         if(empty($user)){
-            echo "vazia";
-            //tratar quando o usuário digita um email inválido
+            $message = "Digite um email válido";
+            $view = "../view_user/login.php";
+            require_once($view);
         }else{
             if(@$_POST['pass'] == $user->senha){
                 //iniciar a sessão
@@ -56,6 +60,9 @@
                 //$view = @$url;
                 header('location: ../view_user/reserva.php');
             }else{
+                $message = "Senha incorreta";
+                $view = "../view_user/login.php";
+                require_once($view);
                 //exibir que o usuário digitou uma senha errada
             }
         }

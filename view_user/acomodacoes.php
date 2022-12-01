@@ -31,8 +31,8 @@
         
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="login.php">Logar</a></li>
-                <li><a href="signup.php">Cadastrar</a></li>
+                <li><a href="../view_user/login.php">Logar</a></li>
+                <li><a href="../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
         <?php if(empty($_SESSION) !== true): ?>

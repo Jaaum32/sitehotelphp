@@ -62,23 +62,23 @@
 
             <div>
                 <label>Preço</label>
-                <input type="number" name="preco" value="<?= @$tarifa->preco ?>" class="form-control">
+                <input required type="number" name="preco" value="<?= @$tarifa->preco ?>" class="form-control">
             </div>
 
             <div>
                 <label>Preço adicional de criança</label>
-                <input type="number" name="precoC" value="<?= @$tarifa->precoC ?>" class="form-control">
+                <input required type="number" name="precoC" value="<?= @$tarifa->precoC ?>" class="form-control">
             </div>
 
             <div>
                 <label>Preço adicional de adulto</label>
-                <input type="number" name="precoA" value="<?= @$tarifa->precoA ?>" class="form-control">
+                <input required type="number" name="precoA" value="<?= @$tarifa->precoA ?>" class="form-control">
             </div>
 
 
             <div>
                 <button class="btn btn-success mt-3" type="submit">Salvar</button>
-                <a href="list_tarifas.php" class="btn btn-light mt-3 ms-1">Cancelar</a>
+                <a href="../view_adm/list_tarifas.php" class="btn btn-light mt-3 ms-1">Cancelar</a>
             </div>
 
         </form>

@@ -72,19 +72,6 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>ID</td>
-                    <td>Usuário</td>
-                    <td>Acomodações</td>
-                    <td>Data Checkin</td>
-                    <td>Data Checkout</td>
-                    <td>Qtd Hospedes</td>
-                    <td>Preco</td>
-                    <td>
-                        <!-- <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-pencil-square"></i></a> -->
-                        <a class="btn btn-sm btn-secondary" href=""><i class="bi bi-trash"></i></a>
-                    </td>
-                </tr>
                 <?php foreach ($reservas as $index => $reserva): ?>
                   <tr>
                       <td><?= $reserva->id ?></td>

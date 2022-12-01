@@ -50,4 +50,16 @@ require_once('../controller/conexao.php');
 
             return $stmt->fetchObject();
         }
+
+        function getAllDatas($id_acom){
+            $sql = "SELECT acom_id, data_in, data_out FROM tb_reserva
+                WHERE acom_id = :id";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(":id", $id_acom);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        }
     }

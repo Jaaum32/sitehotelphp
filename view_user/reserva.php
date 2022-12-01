@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    //require_once("../controller/controller.acom.php");
+    @session_start();
+    require_once("../controller/controller.acom.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +25,8 @@
         
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="login.php">Logar</a></li>
-                <li><a href="signup.php">Cadastrar</a></li>
+                <li><a href="../view_user/login.php">Logar</a></li>
+                <li><a href="../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
         <?php if(empty($_SESSION) !== true): ?>
@@ -63,10 +63,10 @@
                 <input type="date" name="data_saida" id="">
 
                 <label for="">Adultos</label>
-                <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= @$_REQUEST['num_adultos']?>">
+                <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= (@$_REQUEST['num_adultos'])? @$_REQUEST['num_adultos']: 1 ?>">
 
                 <label for="">Crianças</label>
-                <input type="number" name="num_criancas" id="" min="0" max="4" value="<?= @$_REQUEST['num_criancas']?>">
+                <input type="number" name="num_criancas" id="" min="0" max="4" value="<?= (@$_REQUEST['num_criancas'])? @$_REQUEST['num_criancas'] : 0 ?>">
 
                 <label for="">Acomodações</label>
                 <select name="tipo" id="" >

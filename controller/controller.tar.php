@@ -39,6 +39,7 @@
         if(@$_REQUEST['id']){
             $view = "../view_adm/form_tarifas.php";
             $tarifa = $tarifaDAO->getTarifaById($_REQUEST['id']);
+            require_once($view);
         }
     }
 

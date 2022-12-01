@@ -1,17 +1,13 @@
 <?php
     require_once('conexao.php');
     require_once('../models/res.dao.php');
-    session_start();
+    @session_start();
 
     //$view = '../view_adm/list_reservas.php';
     $reservaDAO = new ReservaDAO($pdo);
     $action = @$_REQUEST['action'];
 
-    if($action == "cadastrar"){
-        $reservaDAO->createReserva(@$_POST);
-        $view = '../view_adm/list_reservas.php';
-        header('location:'.$view);
-    }else if($action == "delete"){
+    if($action == "delete"){
         $id = @$_REQUEST['id'];
 
         $ra = $reservaDAO->delete($id);
@@ -33,7 +29,8 @@
     }else if($action == "reservar"){
         if(empty($_SESSION)){
             $view = "../view_user/login.php";
-            echo "n tá logado ainda";
+            //echo "n tá logado ainda";
+            require_once($view);
         }else{
             $id_tarifa = $_POST['id_tarifa'];
             require_once('../controller/controller.tar.php');
@@ -45,6 +42,8 @@
             $preco = $tarifa->preco + $tarifa->precoA * ($_REQUEST['qtd_adultos'] - 1) +  $tarifa->precoC * $_REQUEST['qtd_criancas'];
 
             $reservaDAO->createReserva(@$_POST, $id_user, $qtd_hospedes, $preco);
+
+            
             //$view = "";
         }
     }

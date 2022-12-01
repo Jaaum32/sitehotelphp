@@ -42,17 +42,28 @@
         if(@$_REQUEST['id']){
             $view = "../view_adm/form_acom.php";
             $acomodacao = $acomDAO->getAcomByID($_REQUEST['id']);
+            require_once($view);
         }
     }else if($action == "procurar" || $action == "login"){
         $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
-        $view = "../view_user/reserva.php";
+        require_once("../controller/controller.res.php");
 
+        foreach($acoms as $index=> $acom){
+            $reservas = $reservaDAO->getAllDatas($acom->id);
+            print_r($reservas);
+            echo sizeof($reservas);
+        }
+
+
+
+        $view = "../view_user/reserva.php";
+        require_once($view);
     }
 
     if($view == '../view_adm/list_acom.php'){
         $acoms = $acomDAO->getAll();
     }
 
-    require_once($view);
+    //require_once($view);
 
 ?>
