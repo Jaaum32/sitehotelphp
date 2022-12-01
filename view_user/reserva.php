@@ -73,6 +73,7 @@
                 <select name="tipo" id="" >
                     <option value="Standard">Standart</option>
                     <option value="Luxo">Luxo</option>
+                    <option value="Todos" selected>Todos</option>
                 </select>
 
 
@@ -99,7 +100,7 @@
                             <p>2 camas de solteiro</p>
                         </li>
                     </ul>
-                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
+                    <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>" method="post">
                         <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
                         <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
                         <input type="submit" value="Reservar">

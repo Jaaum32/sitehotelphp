@@ -95,7 +95,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="6">Luxo</td>
+                    <td rowspan="6">Standard</td>
                     <td rowspan="2">Duplo</td>
                     <td>150,00</td>
                     <td>50,00</td>
@@ -125,7 +125,7 @@
 
 
                 <tr>
-                    <td rowspan="6">Standart</td>
+                    <td rowspan="6">Luxo</td>
                     <td rowspan="2">Duplo</td>
                     <td>220,00</td>
                     <td>80,00</td>
