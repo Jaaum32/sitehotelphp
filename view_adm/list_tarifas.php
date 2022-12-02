@@ -1,5 +1,5 @@
 <?php
-  require_once('../controller/controller.tar.php');
+  @require_once('../controller/controller.tar.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <?= @$message ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ADM MODE</a>
@@ -58,7 +59,7 @@
                     <th colspan="4">
                         <h3>Tarifas</h3>
                     </th>
-                    <th><a href="form_tarifas.php" class="btn btn-dark">Adicionar</a></th>
+                    <th><a href="../view_adm/form_tarifas.php" class="btn btn-dark">Adicionar</a></th>
                 </tr>
                 <tr>
                     <th>ID</th>

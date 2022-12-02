@@ -24,7 +24,7 @@
 
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="../view_user/login.php">Logar</a></li>
+                <li><a href="../controller/controller.user.php?tela=index">Logar</a></li>
                 <li><a href="../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
@@ -40,7 +40,7 @@
         <ul>
             <li><a href="../view_user/index.php" id="this">O Hotel</a></li>
             <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
-            <li><a href="../view_user/reserva.php">Reserva</a></li>
+            <li><a href="../controller/controller.acom.php?action=todas">Reserva</a></li>
             <li><a href="../view_user/acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>

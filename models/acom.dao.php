@@ -87,6 +87,18 @@ require_once('../controller/conexao.php');
             return $stmt->fetchAll(PDO::FETCH_CLASS);
         }
 
+        function getTodas($acom){
+
+            $sql = 'SELECT * FROM tb_acomodacao WHERE capacidade >= :capacidade';
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(":capacidade", $acom['num_adultos'] + $acom['num_criancas']);;
+
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+        }
+
         function update($acom){
 
             $tipo = "";

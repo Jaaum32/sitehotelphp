@@ -121,7 +121,7 @@
                 <select name="tipo" id="" >
                     <option value="Standard">Standart</option>
                     <option value="Luxo">Luxo</option>
-                    <option value="Todos" selected>Todos</option>
+                    <option selected value="Todos" selected>Todos</option>
                 </select>
 
 

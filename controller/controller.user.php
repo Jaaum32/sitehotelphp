@@ -3,9 +3,10 @@
     require_once('../models/user.dao.php');
     @session_start();
 
-    $view = '../view_adm/list_users.php';//view padrão
+    $view;//view padrão
     $pessoaDAO = new PessoaDAO($pdo);
     $action = @$_REQUEST['action'];
+    $var =  @$_REQUEST['tela'];
 
     if(@$action == "cadastrar"){
         if(@$_POST['senha'] == @$_POST['confirmar_senha']){
@@ -51,8 +52,8 @@
 
 
     }else if($action == "login"){
+        echo $var;
         $email = @$_POST['email'];
-
         $user = $pessoaDAO->getUserByEmail($email);
 
         if(empty($user)){
@@ -65,7 +66,9 @@
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nome'] = $user->nome;
                 //$view = @$url;
-                header('location: ../view_user/reserva.php');
+                
+                echo $var;
+                header("location: ../view_user/".$var.".php");
             }else{
                 $message = "Senha incorreta";
                 $view = "../view_user/login.php";
@@ -79,8 +82,13 @@
         header('location: ../view_user/index.php');
     }
 
-    if($view == '../view_adm/list_users.php'){
+    if(@$view == '../view_adm/list_users.php'){
         $users = $pessoaDAO->getAll();
+    }
+
+    if(empty($view)){
+        $view = "../view_user/login.php";
+        require_once($view);
     }
     
     //require_once($view);

@@ -57,7 +57,7 @@
             </div>  
         <?php endif; ?>
 
-        <form action="../controller/controller.user.php?action=login" method="POST">
+        <form action="../controller/controller.user.php?action=login&tela=<?= @$var ?>" method="POST">
             <fieldset title="">
                 <legend>Login</legend>
 
