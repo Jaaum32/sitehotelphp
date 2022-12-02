@@ -19,7 +19,11 @@
     }else if($action == "delete"){
         $id = @$_REQUEST['id'];
 
-        $ra = $tarifaDAO->delete($id);
+        
+        $var = $tarifaDAO->delete($id);
+        if($var !== 1 && $var !== 0){
+            $message = $var;
+        }
 
         // print_r($id);
         // print_r($ra);
@@ -32,9 +36,10 @@
         //     //tratar quando ngm for excluido
         // }
 
+        $tarifas = $tarifaDAO->getAll();
         $view = '../view_adm/list_tarifas.php';
-
-        header('location:'.$view);
+        require_once($view);
+        //header('location:'.$view);
     }else if($action == "update"){
         if(@$_REQUEST['id']){
             $view = "../view_adm/form_tarifas.php";

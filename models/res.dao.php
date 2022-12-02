@@ -8,7 +8,6 @@ require_once('../controller/conexao.php');
         }
 
         function createReserva($reserva, $user_id, $qtd_hospedes, $preco, $entrada, $saida){
-            //revisar banco de reserva e fazer o código do sql e seus binds
             $sql = "INSERT INTO tb_reserva(user_id, acom_id,qtd_hospedes, preco, data_in, data_out)
             VALUES (:user_id, :acom_id, :qtd_hospedes, :preco, :data_in, :data_out)";
 

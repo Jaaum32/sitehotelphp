@@ -33,9 +33,11 @@ require_once('../controller/conexao.php');
 
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':id', $id);
-
-            $stmt->execute();
-
+            try {
+                $stmt->execute();
+            }catch(Exception $e){
+                return "esta tarifa esta em uso, portanto, não pode ser excluida";
+            }
             return $stmt->rowCount();
         }
 

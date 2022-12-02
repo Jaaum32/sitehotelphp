@@ -93,7 +93,7 @@
                 <select name="tipo" id="" >
                     <option value="Standard">Standart</option>
                     <option value="Luxo">Luxo</option>
-                    <option value="Todos" selected>Todos</option>
+                    <option selected value="Todos" selected>Todos</option>
                 </select>
 
 
@@ -114,7 +114,7 @@
                         <?php if(@$acom->tipo == "Standard"): ?>
                             <img src="../imagens/bed.jpg" alt="" class="">
                         <?php else: ?>
-                            <img src="../imagens/bed.jpg" alt="" class="">
+                            <img src="../imagens/bed-lux.jpg" alt="" class="">
                         <?php endif; ?> 
                         <ul>
                             <li>

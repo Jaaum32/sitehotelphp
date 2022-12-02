@@ -40,7 +40,7 @@
         <ul>
             <li><a href="../view_user/index.php" id="this">O Hotel</a></li>
             <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
-            <li><a href="../view_user/reserva.php">Reserva</a></li>
+            <li><a href="../controller/controller.acom.php?action=todas">Reserva</a></li>
             <li><a href="../view_user/acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>

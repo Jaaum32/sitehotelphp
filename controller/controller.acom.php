@@ -10,7 +10,7 @@
         if(!$_REQUEST['id']){//insert
             $acomDAO->createAcom(@$_POST);
         }else{//update
-            echo "editar";
+            //echo "editar";
             $acomDAO->update(@$_POST);
         }
         
@@ -47,7 +47,12 @@
     }else if($action == "procurar"){
 
         require_once("../controller/controller.res.php");
-        $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
+        if(@$_POST['tipo'] == "Todos"){
+            $acoms = $acomDAO->getTodas(@$_POST);
+        }else{
+            $acoms = $acomDAO->getAcomByAllInfo(@$_POST);
+        }
+        
 
         $dataEntrada = $_POST['data_entrada'];
         $dataSaida = $_POST['data_saida'];
@@ -58,7 +63,7 @@
             $reservas = $reservaDAO->getAllDatas($acom->id);
 
             foreach($reservas as $index2=> $reserva){
-                echo $reserva->data_in;
+                //echo $reserva->data_in;
                 if($dataEntrada >= $reserva->data_in && $dataEntrada < $reserva->data_out){
                     unset($acoms[$index]);
                 }
@@ -75,6 +80,53 @@
             //echo sizeof($reservas);
         }
 
+
+
+        $view = "../view_user/reserva.php";
+        require_once($view);
+    }else if($action == "todas"){
+        require_once("../controller/controller.res.php");
+        $acoms = $acomDAO->getAll();
+
+
+        $_POST['num_adultos'] = 1;
+        $_POST['num_criancas'] = 0;
+
+        $acoms = $acomDAO->getTodas(@$_POST);
+
+
+        date_default_timezone_set("America/Sao_Paulo");
+        $d=strtotime("tomorrow");
+        $amanha = date("Y-m-d", $d);
+    
+
+        $dataEntrada = date('Y-m-d');
+        $dataSaida = $amanha;
+
+    echo $dataEntrada;
+    echo $dataSaida;  
+
+        foreach($acoms as $index=> $acom){
+
+            $reservas = $reservaDAO->getAllDatas($acom->id);
+
+            foreach($reservas as $index2=> $reserva){
+                //echo $reserva->data_in;
+                if($dataEntrada >= $reserva->data_in && $dataEntrada < $reserva->data_out){
+                    unset($acoms[$index]);
+                }
+    
+                if($dataSaida > $reserva->data_in && $dataSaida <= $reserva->data_out){
+                    unset($acoms[$index]);
+            }
+
+
+            
+            }
+
+            //print_r($reservas);
+            //echo sizeof($reservas);
+        }
 
 
         $view = "../view_user/reserva.php";
