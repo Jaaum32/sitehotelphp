@@ -2,6 +2,9 @@
     @session_start();
     //header('location: ../controller/controller.acom.php?action=procurar');
     //require_once("../controller/controller.acom.php");
+    date_default_timezone_set("America/Sao_Paulo");
+    $d=strtotime("tomorrow");
+    $amanha = date("Y-m-d", $d);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +22,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/estilos.css">
 </head>
+
+
+<script>
+        function alterarDataMinina(){
+            var dataEntrada = document.getElementById("data_inicio");
+            var dataSaida = document.getElementById("data_saida");
+
+            dataSaida.min = dataEntrada.value;
+
+            data_saida.innerHTML.min = dataEntrada.value;
+
+            if(dataEntrada.value > dataSaida.value){
+                dataSaida.value = dataEntrada.value;
+            }
+        }
+        
+</script>
 
 <body>
     <header>
@@ -58,10 +78,10 @@
 
                 <legend>Data da Reserva</legend>
                 <label for="">Data de entrada</label>
-                <input type="date" name="data_entrada" id="" value="<?= (@$_REQUEST['data_entrada'])? @$_REQUEST['data_entrada']: "2022-12-01" ?>">
+                <input type="date" name="data_entrada" id="data_inicio" onchange="alterarDataMinina()" min="<?= date("Y-m-d")?>" value="<?= (@$_REQUEST['data_entrada'])? @$_REQUEST['data_entrada']: date("Y-m-d") ?>">
 
                 <label for="">Data de saída</label>
-                <input type="date" name="data_saida" id="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: "2022-12-06" ?>">
+                <input type="date" name="data_saida" id="data_saida" min="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: $amanha ?>">
 
                 <label for="">Adultos</label>
                 <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= (@$_REQUEST['num_adultos'])? @$_REQUEST['num_adultos']: 1 ?>">
@@ -132,4 +152,5 @@
                 height="20">contato@Hoteloso.com.br</p>
     </footer>
     </body>
+    
 </html>
