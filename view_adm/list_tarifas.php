@@ -53,11 +53,6 @@
     </nav>
 
     <div>
-        <!-- <?php if(@$message) : ?>
-              <div class="alert alert-info w-50 mx-auto">
-                  <?= @$message ?>
-              </div>
-          <?php endif; ?> -->
 
         <table class="table table-striped table-hover">
             <thead class="table-dark">

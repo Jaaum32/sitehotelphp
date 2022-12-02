@@ -1,5 +1,5 @@
 <?php
-    @session_start();
+@session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +21,22 @@
 <body>
     <header>
         <h1 class="gradient">Hoteloso</h1>
-        
-        <?php if(empty($_SESSION)): ?>
-            <ul>
-                <li><a href="../controller/controller.user.php?tela=<?= @$var ?>">Logar</a></li>
-                <li><a href="../controller/controller.user.php?tela=<?= @$var ?>&view=../view_user/signup.php">Cadastrar</a></li>
-            </ul>
+
+        <?php if (empty($_SESSION)): ?>
+        <ul>
+            <li><a href="../controller/controller.user.php?tela=<?=@$var ?>">Logar</a></li>
+            <li><a href="../controller/controller.user.php?tela=<?=@$var ?>&view=../view_user/signup.php">Cadastrar</a>
+            </li>
+        </ul>
         <?php endif; ?>
-        <?php if(empty($_SESSION) !== true): ?>
-            <ul>
-                <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller/controller.user.php?action=logout&tela=<?= @$var ?>">Sair</a></li>
-            </ul>
+        <?php if (empty($_SESSION) !== true): ?>
+        <ul>
+            <li>
+                <p>Olá, <?= $_SESSION['nome'] ?>
+                </p>
+            </li>
+            <li><a href="../controller/controller.user.php?action=logout&tela=<?=@$var ?>">Sair</a></li>
+        </ul>
         <?php endif; ?>
     </header>
 
@@ -51,13 +55,13 @@
 
     <main>
 
-        <?php if (@$message) : ?>
-            <div class="alert" >
-                <?= "&#9888; ". @$message ?> 
-            </div>  
+        <?php if (@$message): ?>
+        <div class="alert">
+            <?="&#9888; " . @$message ?>
+        </div>
         <?php endif; ?>
 
-        <form action="../controller/controller.user.php?action=login&tela=<?= @$var ?>" method="post">
+        <form action="../controller/controller.user.php?action=login&tela=<?=@$var ?>" method="post">
             <fieldset title="">
                 <legend>Cadastro</legend>
                 <input required type="hidden" name="action" value="cadastrar">
@@ -82,7 +86,7 @@
             </fieldset>
 
             <input type="submit" name="" id="button" value="Fazer cadastro">
-        
+
         </form>
     </main>
 

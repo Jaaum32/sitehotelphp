@@ -23,7 +23,8 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../controller/controller.user.php?view=../view_adm/list_users.php">Users</a>
+                        <a class="nav-link" aria-current="page"
+                            href="../controller/controller.user.php?view=../view_adm/list_users.php">Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="../view_adm/list_acom.php">Acomodações</a>
@@ -42,49 +43,37 @@
     <div class="container">
         <h3>Nova acomodação</h3>
 
-
-        <!-- <?php if (@$message) : ?>Site Hotel
-
-            <div class="toast fade show align-items-center text-bg-warning border-0 mx-auto my-3" role="alert" aria-live="polite" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        <?= @$message ?>
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-
-        <?php endif; ?> -->
-
         <form action="../controller/controller.acom.php" method="POST">
             <input type="hidden" name="action" value="cadastrar">
-            <input type="hidden" name="id" value="<?= @$acomodacao->id ?>">
+            <input type="hidden" name="id" value="<?=@$acomodacao->id ?>">
 
 
             <div>
                 <label>Qtd Camas Casal</label>
-                <input required type="number" name="qtd_casal" class="form-control" value="<?= @$acomodacao->qtd_casal ?>">
+                <input required type="number" name="qtd_casal" class="form-control"
+                    value="<?=@$acomodacao->qtd_casal ?>">
             </div>
 
             <div>
                 <label>Qtd Camas Solteiro</label>
-                <input required type="number" name="qtd_solt" class="form-control" value="<?= @$acomodacao->qtd_solt ?>">
+                <input required type="number" name="qtd_solt" class="form-control"
+                    value="<?=@$acomodacao->qtd_solt ?>">
             </div>
 
             <div>
                 <label>Tipo</label>
                 <select class="form-select" name="id_tarifa" aria-label="Default select example">
                     <optgroup label="Standard">
-                        <option <?= (@$acomodacao->id_tarifa == 1)? 'selected' : '' ?> value="1">S-Duplo</option>
-                        <option <?= (@$acomodacao->id_tarifa == 2)? 'selected' : '' ?> value="2">S-Triplo</option>
-                        <option <?= (@$acomodacao->id_tarifa == 3)? 'selected' : '' ?> value="3">S-Família</option>
+                        <option <?=(@$acomodacao->id_tarifa==1) ? 'selected' : '' ?> value="1">S-Duplo</option>
+                        <option <?=(@$acomodacao->id_tarifa==2) ? 'selected' : '' ?> value="2">S-Triplo</option>
+                        <option <?=(@$acomodacao->id_tarifa==3) ? 'selected' : '' ?> value="3">S-Família</option>
                     </optgroup>
                     <optgroup label="Luxo">
-                        <option <?= (@$acomodacao->id_tarifa == 4)? 'selected' : '' ?> value="4">L-Duplo</option>
-                        <option <?= (@$acomodacao->id_tarifa == 5)? 'selected' : '' ?> value="5">L-Triplo</option>
-                        <option <?= (@$acomodacao->id_tarifa == 6)? 'selected' : '' ?> value="6">L-Família</option>
+                        <option <?=(@$acomodacao->id_tarifa==4) ? 'selected' : '' ?> value="4">L-Duplo</option>
+                        <option <?=(@$acomodacao->id_tarifa==5) ? 'selected' : '' ?> value="5">L-Triplo</option>
+                        <option <?=(@$acomodacao->id_tarifa==6) ? 'selected' : '' ?> value="6">L-Família</option>
                     </optgroup>
-                  </select>
+                </select>
 
             </div>
 

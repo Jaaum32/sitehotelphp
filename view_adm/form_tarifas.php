@@ -42,20 +42,6 @@
     <div class="container">
         <h3>Nova tarifa</h3>
 
-
-        <!-- <?php if (@$message) : ?>
-
-            <div class="toast fade show align-items-center text-bg-warning border-0 mx-auto my-3" role="alert" aria-live="polite" aria-atomic="true">
-                <div class="d-flex">
-                    <div class="toast-body">
-                        <?= @$message ?>
-                    </div>
-                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-            </div>
-
-        <?php endif; ?> -->
-
         <form action="../controller/controller.tar.php" method="POST">
             <input type="hidden" name="action" value="cadastrar">
             <input type="hidden" name="id" value="<?= @$tarifa->id ?>">

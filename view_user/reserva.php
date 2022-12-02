@@ -1,9 +1,7 @@
 <?php
     @session_start();
-    //header('location: ../controller/controller.acom.php?action=procurar');
-    //require_once("../controller/controller.acom.php");
     date_default_timezone_set("America/Sao_Paulo");
-    $d=strtotime("tomorrow");
+    $d = strtotime("tomorrow");
     $amanha = date("Y-m-d", $d);
 ?>
 <!DOCTYPE html>
@@ -25,65 +23,66 @@
 
 
 <script>
-        function zeroFill(n) {
-            return n < 10 ? `0${n}` : `${n}`;
+    function zeroFill(n) {
+        return n < 10 ? `0${n}` : `${n}`;
+    }
+
+    function formatDate(date) {
+        const d = zeroFill(date.getDate());
+        const mo = zeroFill(date.getMonth() + 1);
+        const y = zeroFill(date.getFullYear());
+
+        return `${y}-${mo}-${d}`;;
+    }
+
+    function alterarDataMinina() {
+        var dataEntrada = document.getElementById("data_inicio");
+        var dataSaida = document.getElementById("data_saida");
+        var data = new Date(dataEntrada.value);
+        data.setDate(data.getDate() + 2);
+
+        dataSaida.min = formatDate(data);
+
+        if (dataEntrada.value >= dataSaida.value) {
+            console.log(formatDate(data));
+            dataSaida.value = formatDate(data);
+
+            //dataSaida.value = dataEntrada.value;
         }
+    }
 
-        function formatDate(date) {
-            const d = zeroFill(date.getDate());
-            const mo = zeroFill(date.getMonth() + 1);
-            const y = zeroFill(date.getFullYear());
+    function bloquearData() {
+        var dataEntrada = document.getElementById("data_inicio");
+        var dataSaida = document.getElementById("data_saida");
 
-            return `${y}-${mo}-${d}`;;
-        }
+        var data = new Date(dataEntrada.value);
 
-        function alterarDataMinina(){
-            var dataEntrada = document.getElementById("data_inicio");
-            var dataSaida = document.getElementById("data_saida");
-            var data = new Date(dataEntrada.value);
+        if (dataEntrada.value >= dataSaida.value) {
             data.setDate(data.getDate() + 2);
-
-            dataSaida.min = formatDate(data);
-
-            if(dataEntrada.value >= dataSaida.value){
-                console.log(formatDate(data));
-                dataSaida.value = formatDate(data);
-
-                //dataSaida.value = dataEntrada.value;
-            }
+            dataSaida.value = formatDate(data);
         }
+    }
 
-        function bloquearData(){
-            var dataEntrada = document.getElementById("data_inicio");
-            var dataSaida = document.getElementById("data_saida");
-
-            var data = new Date(dataEntrada.value);
-
-            if(dataEntrada.value >= dataSaida.value){
-                data.setDate(data.getDate() + 2);
-                dataSaida.value = formatDate(data);
-
-                //dataSaida.value = dataEntrada.value;
-            }
-        }
-        
 </script>
 
 <body>
     <header>
         <h1 class="gradient">Hoteloso</h1>
-        
-        <?php if(empty($_SESSION)): ?>
-            <ul>
-                <li><a href="../controller/controller.user.php?tela=reserva">Logar</a></li>
-                <li><a href="../controller/controller.user.php?tela=reserva&view=../view_user/signup.php">Cadastrar</a></li>
-            </ul>
+
+        <?php if (empty($_SESSION)): ?>
+        <ul>
+            <li><a href="../controller/controller.user.php?tela=reserva">Logar</a></li>
+            <li><a href="../controller/controller.user.php?tela=reserva&view=../view_user/signup.php">Cadastrar</a></li>
+        </ul>
         <?php endif; ?>
-        <?php if(empty($_SESSION) !== true): ?>
-            <ul>
-                <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller/controller.user.php?action=logout&tela=reserva">Sair</a></li>
-            </ul>
+        <?php if (empty($_SESSION) !== true): ?>
+        <ul>
+            <li>
+                <p>Olá, <?= $_SESSION['nome'] ?>
+                </p>
+            </li>
+            <li><a href="../controller/controller.user.php?action=logout&tela=reserva">Sair</a></li>
+        </ul>
         <?php endif; ?>
     </header>
 
@@ -102,92 +101,105 @@
 
     <main>
         <div class="reserva">
-        <form action="../controller/controller.acom.php?action=procurar" method="POST">
-            <fieldset title="">
+            <form action="../controller/controller.acom.php?action=procurar" method="POST">
+                <fieldset title="">
 
-                <legend>Data da Reserva</legend>
-                <label for="">Data de entrada</label>
-                <input type="date" name="data_entrada" id="data_inicio" onchange="alterarDataMinina()" min="<?= date("Y-m-d")?>" value="<?= (@$_REQUEST['data_entrada'])? @$_REQUEST['data_entrada']: date("Y-m-d") ?>">
+                    <legend>Data da Reserva</legend>
+                    <label for="">Data de entrada</label>
+                    <input type="date" name="data_entrada" id="data_inicio" onchange="alterarDataMinina()"
+                        min="<?= date("Y-m-d") ?>"
+                        value="<?=(@$_REQUEST['data_entrada']) ? @$_REQUEST['data_entrada'] : date("Y-m-d") ?>">
 
-                <label for="">Data de saída</label>
-                <input type="date" name="data_saida" id="data_saida" onchange="bloquearData()" min="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: $amanha ?>">
+                    <label for="">Data de saída</label>
+                    <input type="date" name="data_saida" id="data_saida" onchange="bloquearData()" min=""
+                        value="<?=(@$_REQUEST['data_saida']) ? @$_REQUEST['data_saida'] : $amanha ?>">
 
-                <label for="">Adultos</label>
-                <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= (@$_REQUEST['num_adultos'])? @$_REQUEST['num_adultos']: 1 ?>">
+                    <label for="">Adultos</label>
+                    <input type="number" name="num_adultos" id="" min="1" max="4"
+                        value="<?=(@$_REQUEST['num_adultos']) ? @$_REQUEST['num_adultos'] : 1 ?>">
 
-                <label for="">Crianças</label>
-                <input type="number" name="num_criancas" id="" min="0" max="4" value="<?= (@$_REQUEST['num_criancas'])? @$_REQUEST['num_criancas'] : 0 ?>">
+                    <label for="">Crianças</label>
+                    <input type="number" name="num_criancas" id="" min="0" max="4"
+                        value="<?=(@$_REQUEST['num_criancas']) ? @$_REQUEST['num_criancas'] : 0 ?>">
 
-                <label for="">Acomodações</label>
-                <select name="tipo" id="" >
-                    <option value="Standard">Standart</option>
-                    <option value="Luxo">Luxo</option>
-                    <option selected value="Todos" selected>Todos</option>
-                </select>
+                    <label for="">Acomodações</label>
+                    <select name="tipo" id="">
+                        <option value="Standard">Standart</option>
+                        <option value="Luxo">Luxo</option>
+                        <option selected value="Todos" selected>Todos</option>
+                    </select>
 
 
-            </fieldset>
-            <input type="submit" name="" id="button" value="Buscar">
-        
-        </form>
-        <div>
-            <h4>Acomodações encontradas</h4>
-            <!-- comentario -->
-            <?php if(empty($acoms)): ?>
-                <div class = "nulo">
+                </fieldset>
+                <input type="submit" name="" id="button" value="Buscar">
+
+            </form>
+            <div>
+                <h4>Acomodações encontradas</h4>
+                <?php if (empty($acoms)): ?>
+                <div class="nulo">
                     <p>Nenhuma acomodação encontrada dentro do que foi pedido!</p>
                 </div>
-            <?php else: ?>
-                <?php foreach($acoms as $index => $acom): ?>
-                    <div class="card">
-                        <?php if(@$acom->tipo == "Standard"): ?>
-                            <img src="../imagens/bed.jpg" alt="" class="">
-                        <?php else: ?>
-                            <img src="../imagens/bed-lux.jpg" alt="" class="">
-                        <?php endif; ?> 
-                        <ul>
-                            <li>
-                                <p><?= @$acom->tipo ?></p>
-                                
-                            </li>
-                            <li>
-                                <p><?= @$acom->subtipo ?></p>
-                                
-                            </li>
-                            <li>
-                                <?php if(@$acom->qtd_casal !== 0): ?>
-                                    <p><?= @$acom->qtd_casal ?> cama(s) de casal</p>
-                                <?php endif; ?>  
-                            </li>
-                            <li>
-                                <?php if(@$acom->qtd_solt !== 0): ?>
-                                    <p><?= @$acom->qtd_solt ?> cama(s) de solteiro</p>
-                                <?php endif; ?>  
-                            </li>
-                        </ul>
-                        <form action="../controller/controller.res.php?action=reservar&tela=reserva&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
-                                <?php if(@$_REQUEST['num_adultos']): ?>
-                                    <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
-                                    <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
-                                <?php else: ?>
-                                    <input type="hidden" name="num_adultos" value="<?= 1 ?>">
-                                    <input type="hidden" name="num_criancas" value="<?= 0 ?>">
-                                    <input type="hidden" name="data_entrada" value="<?= date("Y-m-d") ?>">
-                                    <input type="hidden" name="data_saida" value="<?= $amanha ?>">
-                                    <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
-                                    <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
-                                <?php endif; ?> 
+                <?php else: ?>
+                <?php foreach ($acoms as $index => $acom): ?>
+                <div class="card">
+                    <?php if (@$acom->tipo == "Standard"): ?>
+                    <img src="../imagens/bed.jpg" alt="" class="">
+                    <?php else: ?>
+                    <img src="../imagens/bed-lux.jpg" alt="" class="">
+                    <?php endif; ?>
+                    <ul>
+                        <li>
+                            <p>
+                                <?=@$acom->tipo ?>
+                            </p>
 
-                            <input type="submit" value="Reservar">
-                        </form>
-                        
-                    </div>
+                        </li>
+                        <li>
+                            <p>
+                                <?=@$acom->subtipo ?>
+                            </p>
+
+                        </li>
+                        <li>
+                            <?php if (@$acom->qtd_casal !== 0): ?>
+                            <p>
+                                <<=@$acom->qtd_casal ?> cama(s) de casal
+                            </p>
+                            <?php endif; ?>
+                        </li>
+                        <li>
+                            <?php if (@$acom->qtd_solt !== 0): ?>
+                            <p>
+                                <<=@$acom->qtd_solt ?> cama(s) de solteiro
+                            </p>
+                            <?php endif; ?>
+                        </li>
+                    </ul>
+                    <form
+                        action="../controller/controller.res.php?action=reservar&tela=reserva&qtd_adultos=<?=@$_REQUEST['num_adultos'] ?>&qtd_criancas=<?=@$_REQUEST['num_criancas'] ?>&entrada=<?=@$_REQUEST['data_entrada'] ?>&saida=<?=@$_REQUEST['data_saida'] ?>"
+                        method="post">
+                        <?php if (@$_REQUEST['num_adultos']): ?>
+                        <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                        <input type="hidden" name="id_tarifa" value="<?=@$acom->id_tarifa ?>">
+                        <?php else: ?>
+                        <input type="hidden" name="num_adultos" value="<?=1 ?>">
+                        <input type="hidden" name="num_criancas" value="<?=0 ?>">
+                        <input type="hidden" name="data_entrada" value="<?= date("Y-m-d") ?>">
+                        <input type="hidden" name="data_saida" value="<?= $amanha ?>">
+                        <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                        <input type="hidden" name="id_tarifa" value="<?=@$acom->id_tarifa ?>">
+                        <?php endif; ?>
+
+                        <input type="submit" value="Reservar">
+                    </form>
+
+                </div>
                 <?php endforeach; ?>
-            <?php endif; ?>
-        </div>
+                <?php endif; ?>
+            </div>
         </div>
     </main>
-
 
     <footer>
         <hr>
@@ -201,6 +213,6 @@
         <p><img src="https://icons.iconarchive.com/icons/graphicloads/100-flat/256/email-2-icon.png" alt="" width="20"
                 height="20">contato@Hoteloso.com.br</p>
     </footer>
-    </body>
-    
+</body>
+
 </html>

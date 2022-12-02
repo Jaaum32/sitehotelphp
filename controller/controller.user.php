@@ -13,7 +13,6 @@
             $userE = $pessoaDAO->getUserByEmail(@$_POST['email']);
             if(empty($userE)){
                 $pessoaDAO->createUser(@$_POST);
-                //$view = '../view_user/index.php';
 
                 $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
                 $_SESSION['id'] = $id;
@@ -31,13 +30,10 @@
             require_once($view);
         }
         
-        
-        //require_once($view);
     }else if(@$action == "delete"){
         $id = @$_REQUEST['id'];
 
     }else if($action == "login"){
-        echo $var;
         $email = @$_POST['email'];
         $user = $pessoaDAO->getUserByEmail($email);
 
@@ -50,15 +46,12 @@
                 //iniciar a sessão
                 $_SESSION['id'] = $user->id;
                 $_SESSION['nome'] = $user->nome;
-                //$view = @$url;
                 
-                echo $var;
                 header("location: ../view_user/".$var.".php");
             }else{
                 $message = "Senha incorreta";
                 $view = "../view_user/login.php";
                 require_once($view);
-                //exibir que o usuário digitou uma senha errada
             }
         }
         
@@ -80,7 +73,5 @@
         $view = "../view_user/login.php";
         require_once($view);
     }
-    
-    //require_once($view);
 
 ?>

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    @session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,28 +18,32 @@
 
     <link rel="stylesheet" href="../estilos/estilos.css">
     <style>
-        main img{
+        main img {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
     </style>
-    
+
 </head>
 
 <body>
     <header>
         <h1 class="gradient">Hoteloso</h1>
-        
-        <?php if(empty($_SESSION)): ?>
-            <ul>
-                <li><a href="../controller/controller.user.php?tela=acomodacoes">Logar</a></li>
-                <li><a href="../controller/controller.user.php?tela=acomodacoes&view=../view_user/signup.php">Cadastrar</a></li>
-            </ul>
+
+        <?php if (empty($_SESSION)): ?>
+        <ul>
+            <li><a href="../controller/controller.user.php?tela=acomodacoes">Logar</a></li>
+            <li><a href="../controller/controller.user.php?tela=acomodacoes&view=../view_user/signup.php">Cadastrar</a>
+            </li>
+        </ul>
         <?php endif; ?>
-        <?php if(empty($_SESSION) !== true): ?>
-            <ul>
-                <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller/controller.user.php?action=logout&tela=acomodacoes">Sair</a></li>
-            </ul>
+        <?php if (empty($_SESSION) !== true): ?>
+        <ul>
+            <li>
+                <p>Olá, <?= $_SESSION['nome'] ?>
+                </p>
+            </li>
+            <li><a href="../controller/controller.user.php?action=logout&tela=acomodacoes">Sair</a></li>
+        </ul>
         <?php endif; ?>
     </header>
 
@@ -58,8 +62,8 @@
     <main>
         <h2>Acomodações</h2>
         <h4>Apartamentos Standart</h4>
-            <img src="../imagens/bed.jpg" alt="" class="room">
-        
+        <img src="../imagens/bed.jpg" alt="" class="room">
+
         <ul>
             <li>Cama king size</li>
             <li>Banheiro</li>

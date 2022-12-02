@@ -46,11 +46,6 @@
     </nav>
 
     <div>
-        <!-- <?php if(@$message) : ?>
-              <div class="alert alert-info w-50 mx-auto">
-                  <?= @$message ?>
-              </div>
-          <?php endif; ?> -->
 
         <table class="table table-striped table-hover">
             <thead class="table-dark">
@@ -58,7 +53,6 @@
                     <th colspan="8">
                         <h3>Reservas</h3>
                     </th>
-                    <!-- <th><a href="" class="btn btn-dark">Adicionar</a></th> -->
                 </tr>
                 <tr>
                     <th>ID</th>

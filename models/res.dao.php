@@ -1,66 +1,73 @@
 <?php
 require_once('../controller/conexao.php');
-    class ReservaDAO{
-        private $pdo;
+class ReservaDAO
+{
+    private $pdo;
 
-        function __construct($pdo){
-            $this->pdo = $pdo;
-        }
+    function __construct($pdo)
+    {
+        $this->pdo = $pdo;
+    }
 
-        function createReserva($reserva, $user_id, $qtd_hospedes, $preco, $entrada, $saida){
-            $sql = "INSERT INTO tb_reserva(user_id, acom_id,qtd_hospedes, preco, data_in, data_out)
+    function createReserva($reserva, $user_id, $qtd_hospedes, $preco, $entrada, $saida)
+    {
+        $sql = "INSERT INTO tb_reserva(user_id, acom_id,qtd_hospedes, preco, data_in, data_out)
             VALUES (:user_id, :acom_id, :qtd_hospedes, :preco, :data_in, :data_out)";
 
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(":user_id", $user_id);
-            $stmt->bindValue(":acom_id", $reserva['acom_id']);
-            $stmt->bindValue(":qtd_hospedes", $qtd_hospedes);
-            $stmt->bindValue(":preco", $preco);
-            $stmt->bindValue(":data_in", $entrada);
-            $stmt->bindValue(":data_out", $saida);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":user_id", $user_id);
+        $stmt->bindValue(":acom_id", $reserva['acom_id']);
+        $stmt->bindValue(":qtd_hospedes", $qtd_hospedes);
+        $stmt->bindValue(":preco", $preco);
+        $stmt->bindValue(":data_in", $entrada);
+        $stmt->bindValue(":data_out", $saida);
 
-            return $stmt->execute();
-        }
+        return $stmt->execute();
+    }
 
-        function getAll(){
-            $sql = "SELECT * FROM tb_reserva";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute();
+    function getAll()
+    {
+        $sql = "SELECT * FROM tb_reserva";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-        }
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
+    }
 
-        function delete($id){
-            $sql = "DELETE FROM tb_reserva WHERE id = :id";
+    function delete($id)
+    {
+        $sql = "DELETE FROM tb_reserva WHERE id = :id";
 
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(':id', $id);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $id);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            return $stmt->rowCount();
-        }
+        return $stmt->rowCount();
+    }
 
-        function getReservaById($id){
-            $sql = "SELECT * FROM tb_reserva WHERE id = ?";
+    function getReservaById($id)
+    {
+        $sql = "SELECT * FROM tb_reserva WHERE id = ?";
 
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(1, $id);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(1, $id);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            return $stmt->fetchObject();
-        }
+        return $stmt->fetchObject();
+    }
 
-        function getAllDatas($id_acom){
-            $sql = "SELECT acom_id, data_in, data_out FROM tb_reserva
+    function getAllDatas($id_acom)
+    {
+        $sql = "SELECT acom_id, data_in, data_out FROM tb_reserva
                 WHERE acom_id = :id";
 
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindValue(":id", $id_acom);
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(":id", $id_acom);
 
-            $stmt->execute();
+        $stmt->execute();
 
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-        }
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
+}
