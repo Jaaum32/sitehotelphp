@@ -24,7 +24,7 @@
 
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="../view_user/login.php">Logar</a></li>
+                <li><a href="../controller/controller.user.php?tela=index">Logar</a></li>
                 <li><a href="../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
