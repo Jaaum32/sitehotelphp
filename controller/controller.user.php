@@ -9,14 +9,21 @@
 
     if(@$action == "cadastrar"){
         if(@$_POST['senha'] == @$_POST['confirmar_senha']){
-            $pessoaDAO->createUser(@$_POST);
-            $view = '../view_user/index.php';
+            $userE = $pessoaDAO->getUserByEmail(@$_POST['email']);
+            if(empty($userE)){
+                $pessoaDAO->createUser(@$_POST);
+                $view = '../view_user/index.php';
 
-            $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
-            $_SESSION['id'] = $id;
-            $_SESSION['nome'] = @$_POST['nome'];
+                $id = $pessoaDAO->getUserByEmail(@$_POST['email'])->id;
+                $_SESSION['id'] = $id;
+                $_SESSION['nome'] = @$_POST['nome'];
 
-            header('location: '.$view);
+                header('location: '.$view);
+            }else{ 
+                $message = "Esse email já está cadastrado";
+                $view = "../view_user/signup.php";
+                include_once($view);
+            }
         }else{
             $message = "As duas senhas devem ser iguais";
             $view = "../view_user/signup.php";
