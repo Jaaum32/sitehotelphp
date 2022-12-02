@@ -91,7 +91,11 @@
             <?php else: ?>
                 <?php foreach($acoms as $index => $acom): ?>
                     <div class="card">
-                        <img src="../imagens/bed.jpg" alt="" class="">
+                        <?php if(@$acom->tipo == "Standard"): ?>
+                            <img src="../imagens/bed.jpg" alt="" class="">
+                        <?php else: ?>
+                            <img src="../imagens/bed.jpg" alt="" class="">
+                        <?php endif; ?> 
                         <ul>
                             <li>
                                 <p><?= @$acom->tipo ?></p>
@@ -102,7 +106,14 @@
                                 
                             </li>
                             <li>
-                                <p>2 camas de solteiro</p>
+                                <?php if(@$acom->qtd_casal !== 0): ?>
+                                    <p><?= @$acom->qtd_casal ?> cama(s) de casal</p>
+                                <?php endif; ?>  
+                            </li>
+                            <li>
+                                <?php if(@$acom->qtd_solt !== 0): ?>
+                                    <p><?= @$acom->qtd_solt ?> cama(s) de solteiro</p>
+                                <?php endif; ?>  
                             </li>
                         </ul>
                         <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
