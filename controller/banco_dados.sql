@@ -41,5 +41,7 @@ CREATE TABLE tb_reserva (
     data_out date DEFAULT NULL,
     qtd_hospedes int DEFAULT NULL,
     preco DECIMAL DEFAULT NULL,
-    PRIMARY KEY(id)
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) REFERENCES tb_usuario(id),
+    FOREIGN KEY(acom_id) REFERENCES tb_acomodacao(id)
 );

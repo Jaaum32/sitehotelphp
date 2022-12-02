@@ -19,22 +19,10 @@
     }else if($action == "delete"){
         $id = @$_REQUEST['id'];
 
-        
         $var = $tarifaDAO->delete($id);
         if($var !== 1 && $var !== 0){
             $message = $var;
         }
-
-        // print_r($id);
-        // print_r($ra);
-
-        // if($ra > 0){
-        //     //ações após excluir um usuário;
-        //     print_r("removeu");
-        // }else{
-        //     print_r("n removeu");
-        //     //tratar quando ngm for excluido
-        // }
 
         $tarifas = $tarifaDAO->getAll();
         $view = '../view_adm/list_tarifas.php';

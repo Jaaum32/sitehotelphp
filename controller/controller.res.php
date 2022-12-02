@@ -6,6 +6,7 @@
     //$view = '../view_adm/list_reservas.php';
     $reservaDAO = new ReservaDAO($pdo);
     $action = @$_REQUEST['action'];
+    $var = @$_REQUEST['tela'];
 
     if($action == "delete"){
         $id = @$_REQUEST['id'];
@@ -32,6 +33,8 @@
             //echo "n tá logado ainda";
             require_once($view);
         }else{
+            print_r($_POST);
+            print_r($_REQUEST);
             $id_tarifa = $_POST['id_tarifa'];
             require_once('../controller/controller.tar.php');
             $tarifa = $tarifaDAO->getTarifaById($id_tarifa);

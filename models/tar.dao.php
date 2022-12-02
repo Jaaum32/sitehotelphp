@@ -36,7 +36,7 @@ require_once('../controller/conexao.php');
             try {
                 $stmt->execute();
             }catch(Exception $e){
-                return "esta tarifa esta em uso, portanto, não pode ser excluida";
+                return "Esta tarifa está em uso, portanto, não pode ser excluída";
             }
             return $stmt->rowCount();
         }

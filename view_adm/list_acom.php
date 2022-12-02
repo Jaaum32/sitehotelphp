@@ -19,6 +19,13 @@
 </head>
 
 <body>
+    <?php if(@$message) : ?>
+        <div>
+            <?php 
+                echo "<script type='text/javascript'>alert('$message');</script>"; 
+            ?>
+        </div>
+    <?php endif; ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">ADM MODE</a>
@@ -29,16 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="list_users.php">Users</a>
+                        <a class="nav-link" aria-current="page" href="../controller/controller.user.php?view=../view_adm/list_users.php">Users</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Acomodações</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list_tarifas.php">Tarifas</a>
+                        <a class="nav-link" href="../view_adm/list_tarifas.php">Tarifas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="list_reservas.php">Reservas</a>
+                        <a class="nav-link" href="../view_adm/list_reservas.php">Reservas</a>
                     </li>
                 </ul>
             </div>

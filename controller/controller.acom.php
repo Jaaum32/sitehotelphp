@@ -20,23 +20,16 @@
 
     }else if($action == "delete"){
         $id = @$_REQUEST['id'];
-
-        $ra = $acomDAO->delete($id);
-
-        //print_r($id);
-        //print_r($ra);
-
-        //if($ra > 0){
-            //ações após excluir um usuário;
-        //    print_r("removeu");
-        //}else{
-        //    print_r("n removeu");
-            //tratar quando ngm for excluido
-        //}
         
-        $view = '../view_adm/list_acom.php';
+        $var = $acomDAO->delete($id);
+        if($var !== 1 && $var !== 0){
+            $message = $var;
+        }
 
-        header('location:'.$view);
+        $acoms = $acomDAO->getAll();
+        $view = '../view_adm/list_acom.php';
+        require_once($view);
+        //header('location:'.$view);
 
     }else if($action == "update"){
         if(@$_REQUEST['id']){
@@ -45,7 +38,6 @@
             require_once($view);
         }
     }else if($action == "procurar"){
-
         require_once("../controller/controller.res.php");
         if(@$_POST['tipo'] == "Todos"){
             $acoms = $acomDAO->getTodas(@$_POST);
@@ -78,7 +70,7 @@
 
             //print_r($reservas);
             //echo sizeof($reservas);
-        }
+       }
 
 
 

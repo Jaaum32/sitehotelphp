@@ -24,14 +24,14 @@
         
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="../view_user/login.php">Logar</a></li>
-                <li><a href="../view_user/signup.php">Cadastrar</a></li>
+                <li><a href="../controller/controller.user.php?tela=<?= @$var ?>">Logar</a></li>
+                <li><a href="../controller/controller.user.php?tela=<?= @$var ?>&view=../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
         <?php if(empty($_SESSION) !== true): ?>
             <ul>
                 <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller.user.php?action=logout">Sair</a></li>
+                <li><a href="../controller/controller.user.php?action=logout&tela=<?= @$var ?>">Sair</a></li>
             </ul>
         <?php endif; ?>
     </header>
@@ -40,7 +40,7 @@
         <ul>
             <li><a href="../view_user/index.php">O Hotel</a></li>
             <li><a href="../view_user/faleconosco.php">Fale Conosco</a></li>
-            <li><a href="../view_user/reserva.php" id="this">Reserva</a></li>
+            <li><a href="../view_user/reserva.php">Reserva</a></li>
             <li><a href="../view_user/acomodacoes.php">Acomodações</a></li>
         </ul>
     </nav>
@@ -57,8 +57,7 @@
             </div>  
         <?php endif; ?>
 
-
-        <form action="../controller/controller.user.php" method="post">
+        <form action="../controller/controller.user.php?action=login&tela=<?= @$var ?>" method="post">
             <fieldset title="">
                 <legend>Cadastro</legend>
                 <input required type="hidden" name="action" value="cadastrar">

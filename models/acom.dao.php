@@ -55,8 +55,12 @@ require_once('../controller/conexao.php');
 
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':id', $id);
-
-            $stmt->execute();
+            try{
+                $stmt->execute();
+            }catch(Exception $e){
+                return "Esta acomodações está em uso, portanto, não pode ser excluída";
+            }
+            
 
             return $stmt->rowCount();
         }

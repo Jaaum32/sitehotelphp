@@ -26,7 +26,7 @@
 
 <script>
         function zeroFill(n) {
-            return n < 9 ? `0${n}` : `${n}`;
+            return n < 10 ? `0${n}` : `${n}`;
         }
 
         function formatDate(date) {
@@ -46,6 +46,7 @@
             dataSaida.min = formatDate(data);
 
             if(dataEntrada.value >= dataSaida.value){
+                console.log(formatDate(data));
                 dataSaida.value = formatDate(data);
 
                 //dataSaida.value = dataEntrada.value;
@@ -74,14 +75,14 @@
         
         <?php if(empty($_SESSION)): ?>
             <ul>
-                <li><a href="../view_user/login.php">Logar</a></li>
-                <li><a href="../view_user/signup.php">Cadastrar</a></li>
+                <li><a href="../controller/controller.user.php?tela=reserva">Logar</a></li>
+                <li><a href="../controller/controller.user.php?tela=reserva&view=../view_user/signup.php">Cadastrar</a></li>
             </ul>
         <?php endif; ?>
         <?php if(empty($_SESSION) !== true): ?>
             <ul>
                 <li><p>Olá, <?= $_SESSION['nome'] ?></p></li>
-                <li><a href="../controller/controller.user.php?action=logout">Sair</a></li>
+                <li><a href="../controller/controller.user.php?action=logout&tela=reserva">Sair</a></li>
             </ul>
         <?php endif; ?>
     </header>
@@ -164,9 +165,19 @@
                                 <?php endif; ?>  
                             </li>
                         </ul>
-                        <form action="../controller/controller.res.php?action=reservar&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
-                            <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
-                            <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
+                        <form action="../controller/controller.res.php?action=reservar&tela=reserva&qtd_adultos=<?= @$_REQUEST['num_adultos']?>&qtd_criancas=<?= @$_REQUEST['num_criancas']?>&entrada=<?= @$_REQUEST['data_entrada']?>&saida=<?= @$_REQUEST['data_saida']?>" method="post">
+                                <?php if(@$_REQUEST['num_adultos']): ?>
+                                    <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                                    <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
+                                <?php else: ?>
+                                    <input type="hidden" name="num_adultos" value="<?= 1 ?>">
+                                    <input type="hidden" name="num_criancas" value="<?= 0 ?>">
+                                    <input type="hidden" name="data_entrada" value="<?= date("Y-m-d") ?>">
+                                    <input type="hidden" name="data_saida" value="<?= $amanha ?>">
+                                    <input type="hidden" name="acom_id" value="<?= $acom->id ?>">
+                                    <input type="hidden" name="id_tarifa" value="<?= @$acom->id_tarifa ?>">
+                                <?php endif; ?> 
+
                             <input type="submit" value="Reservar">
                         </form>
                         

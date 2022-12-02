@@ -1,0 +1,11 @@
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('1','150','50','15');
+
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('2','150','45','13');
+
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('3','150','40','10');
+
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('4','220','80','25');
+
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('5','150','75','23');
+
+INSERT INTO `tb_tarifa`(`id`, `preco`, `precoC`, `precoA`) VALUES ('6','150','70','20');
