@@ -19,7 +19,7 @@
     }else if($action == "delete"){
         $id = @$_REQUEST['id'];
 
-        $ra = $tarifaDAO->delete($id);
+        // $ra = $tarifaDAO->delete($id);
 
         // print_r($id);
         // print_r($ra);

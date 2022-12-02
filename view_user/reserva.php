@@ -25,16 +25,44 @@
 
 
 <script>
+        function zeroFill(n) {
+            return n < 9 ? `0${n}` : `${n}`;
+        }
+
+        function formatDate(date) {
+            const d = zeroFill(date.getDate());
+            const mo = zeroFill(date.getMonth() + 1);
+            const y = zeroFill(date.getFullYear());
+
+            return `${y}-${mo}-${d}`;;
+        }
+
         function alterarDataMinina(){
             var dataEntrada = document.getElementById("data_inicio");
             var dataSaida = document.getElementById("data_saida");
+            var data = new Date(dataEntrada.value);
+            data.setDate(data.getDate() + 2);
 
-            dataSaida.min = dataEntrada.value;
+            dataSaida.min = formatDate(data);
 
-            data_saida.innerHTML.min = dataEntrada.value;
+            if(dataEntrada.value >= dataSaida.value){
+                dataSaida.value = formatDate(data);
 
-            if(dataEntrada.value > dataSaida.value){
-                dataSaida.value = dataEntrada.value;
+                //dataSaida.value = dataEntrada.value;
+            }
+        }
+
+        function bloquearData(){
+            var dataEntrada = document.getElementById("data_inicio");
+            var dataSaida = document.getElementById("data_saida");
+
+            var data = new Date(dataEntrada.value);
+
+            if(dataEntrada.value >= dataSaida.value){
+                data.setDate(data.getDate() + 2);
+                dataSaida.value = formatDate(data);
+
+                //dataSaida.value = dataEntrada.value;
             }
         }
         
@@ -81,7 +109,7 @@
                 <input type="date" name="data_entrada" id="data_inicio" onchange="alterarDataMinina()" min="<?= date("Y-m-d")?>" value="<?= (@$_REQUEST['data_entrada'])? @$_REQUEST['data_entrada']: date("Y-m-d") ?>">
 
                 <label for="">Data de saída</label>
-                <input type="date" name="data_saida" id="data_saida" min="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: $amanha ?>">
+                <input type="date" name="data_saida" id="data_saida" onchange="bloquearData()" min="" value="<?= (@$_REQUEST['data_saida'])? @$_REQUEST['data_saida']: $amanha ?>">
 
                 <label for="">Adultos</label>
                 <input type="number" name="num_adultos" id="" min="1" max="4" value="<?= (@$_REQUEST['num_adultos'])? @$_REQUEST['num_adultos']: 1 ?>">
@@ -114,7 +142,7 @@
                         <?php if(@$acom->tipo == "Standard"): ?>
                             <img src="../imagens/bed.jpg" alt="" class="">
                         <?php else: ?>
-                            <img src="../imagens/bed.jpg" alt="" class="">
+                            <img src="../imagens/bed-lux.jpg" alt="" class="">
                         <?php endif; ?> 
                         <ul>
                             <li>
